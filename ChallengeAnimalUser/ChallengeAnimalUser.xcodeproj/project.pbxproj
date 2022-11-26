@@ -12,20 +12,11 @@
 		95484BB6293126BF0021B21B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB5293126BF0021B21B /* ViewController.swift */; };
 		95484BBB293126BF0021B21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBA293126BF0021B21B /* Assets.xcassets */; };
 		95484BBE293126BF0021B21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBC293126BF0021B21B /* LaunchScreen.storyboard */; };
-		95484BC9293126BF0021B21B /* ChallengeAnimalUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BC8293126BF0021B21B /* ChallengeAnimalUserTests.swift */; };
-		95484BD3293126BF0021B21B /* ChallengeAnimalUserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BD2293126BF0021B21B /* ChallengeAnimalUserUITests.swift */; };
-		95484BD5293126BF0021B21B /* ChallengeAnimalUserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BD4293126BF0021B21B /* ChallengeAnimalUserUITestsLaunchTests.swift */; };
+		95484BFC2931A8BB0021B21B /* ChallengeAnimalUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		95484BC5293126BF0021B21B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 95484BA6293126BE0021B21B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 95484BAD293126BE0021B21B;
-			remoteInfo = ChallengeAnimalUser;
-		};
-		95484BCF293126BF0021B21B /* PBXContainerItemProxy */ = {
+		95484BFD2931A8BB0021B21B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 95484BA6293126BE0021B21B /* Project object */;
 			proxyType = 1;
@@ -42,12 +33,9 @@
 		95484BBA293126BF0021B21B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95484BBD293126BF0021B21B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95484BBF293126BF0021B21B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95484BC4293126BF0021B21B /* ChallengeAnimalUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAnimalUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95484BC8293126BF0021B21B /* ChallengeAnimalUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserTests.swift; sourceTree = "<group>"; };
-		95484BCE293126BF0021B21B /* ChallengeAnimalUserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAnimalUserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95484BD2293126BF0021B21B /* ChallengeAnimalUserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserUITests.swift; sourceTree = "<group>"; };
-		95484BD4293126BF0021B21B /* ChallengeAnimalUserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		95484BE129312D950021B21B /* ChallengeAnimalUser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChallengeAnimalUser.entitlements; sourceTree = "<group>"; };
+		95484BF92931A8BB0021B21B /* ChallengeAnimalUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAnimalUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +46,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95484BC1293126BF0021B21B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95484BCB293126BF0021B21B /* Frameworks */ = {
+		95484BF62931A8BB0021B21B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,8 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				95484BB0293126BF0021B21B /* ChallengeAnimalUser */,
-				95484BC7293126BF0021B21B /* ChallengeAnimalUserTests */,
-				95484BD1293126BF0021B21B /* ChallengeAnimalUserUITests */,
+				95484BFA2931A8BB0021B21B /* ChallengeAnimalUserTests */,
 				95484BAF293126BF0021B21B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,8 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				95484BAE293126BF0021B21B /* ChallengeAnimalUser.app */,
-				95484BC4293126BF0021B21B /* ChallengeAnimalUserTests.xctest */,
-				95484BCE293126BF0021B21B /* ChallengeAnimalUserUITests.xctest */,
+				95484BF92931A8BB0021B21B /* ChallengeAnimalUserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,21 +88,12 @@
 			path = ChallengeAnimalUser;
 			sourceTree = "<group>";
 		};
-		95484BC7293126BF0021B21B /* ChallengeAnimalUserTests */ = {
+		95484BFA2931A8BB0021B21B /* ChallengeAnimalUserTests */ = {
 			isa = PBXGroup;
 			children = (
-				95484BC8293126BF0021B21B /* ChallengeAnimalUserTests.swift */,
+				95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */,
 			);
 			path = ChallengeAnimalUserTests;
-			sourceTree = "<group>";
-		};
-		95484BD1293126BF0021B21B /* ChallengeAnimalUserUITests */ = {
-			isa = PBXGroup;
-			children = (
-				95484BD2293126BF0021B21B /* ChallengeAnimalUserUITests.swift */,
-				95484BD4293126BF0021B21B /* ChallengeAnimalUserUITestsLaunchTests.swift */,
-			);
-			path = ChallengeAnimalUserUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,41 +116,23 @@
 			productReference = 95484BAE293126BF0021B21B /* ChallengeAnimalUser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95484BC3293126BF0021B21B /* ChallengeAnimalUserTests */ = {
+		95484BF82931A8BB0021B21B /* ChallengeAnimalUserTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95484BDB293126BF0021B21B /* Build configuration list for PBXNativeTarget "ChallengeAnimalUserTests" */;
+			buildConfigurationList = 95484BFF2931A8BB0021B21B /* Build configuration list for PBXNativeTarget "ChallengeAnimalUserTests" */;
 			buildPhases = (
-				95484BC0293126BF0021B21B /* Sources */,
-				95484BC1293126BF0021B21B /* Frameworks */,
-				95484BC2293126BF0021B21B /* Resources */,
+				95484BF52931A8BB0021B21B /* Sources */,
+				95484BF62931A8BB0021B21B /* Frameworks */,
+				95484BF72931A8BB0021B21B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				95484BC6293126BF0021B21B /* PBXTargetDependency */,
+				95484BFE2931A8BB0021B21B /* PBXTargetDependency */,
 			);
 			name = ChallengeAnimalUserTests;
 			productName = ChallengeAnimalUserTests;
-			productReference = 95484BC4293126BF0021B21B /* ChallengeAnimalUserTests.xctest */;
+			productReference = 95484BF92931A8BB0021B21B /* ChallengeAnimalUserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		95484BCD293126BF0021B21B /* ChallengeAnimalUserUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 95484BDE293126BF0021B21B /* Build configuration list for PBXNativeTarget "ChallengeAnimalUserUITests" */;
-			buildPhases = (
-				95484BCA293126BF0021B21B /* Sources */,
-				95484BCB293126BF0021B21B /* Frameworks */,
-				95484BCC293126BF0021B21B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				95484BD0293126BF0021B21B /* PBXTargetDependency */,
-			);
-			name = ChallengeAnimalUserUITests;
-			productName = ChallengeAnimalUserUITests;
-			productReference = 95484BCE293126BF0021B21B /* ChallengeAnimalUserUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -195,11 +147,7 @@
 					95484BAD293126BE0021B21B = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					95484BC3293126BF0021B21B = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = 95484BAD293126BE0021B21B;
-					};
-					95484BCD293126BF0021B21B = {
+					95484BF82931A8BB0021B21B = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 95484BAD293126BE0021B21B;
 					};
@@ -219,8 +167,7 @@
 			projectRoot = "";
 			targets = (
 				95484BAD293126BE0021B21B /* ChallengeAnimalUser */,
-				95484BC3293126BF0021B21B /* ChallengeAnimalUserTests */,
-				95484BCD293126BF0021B21B /* ChallengeAnimalUserUITests */,
+				95484BF82931A8BB0021B21B /* ChallengeAnimalUserTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,14 +182,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95484BC2293126BF0021B21B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95484BCC293126BF0021B21B /* Resources */ = {
+		95484BF72931A8BB0021B21B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,35 +202,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95484BC0293126BF0021B21B /* Sources */ = {
+		95484BF52931A8BB0021B21B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95484BC9293126BF0021B21B /* ChallengeAnimalUserTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95484BCA293126BF0021B21B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95484BD3293126BF0021B21B /* ChallengeAnimalUserUITests.swift in Sources */,
-				95484BD5293126BF0021B21B /* ChallengeAnimalUserUITestsLaunchTests.swift in Sources */,
+				95484BFC2931A8BB0021B21B /* ChallengeAnimalUserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		95484BC6293126BF0021B21B /* PBXTargetDependency */ = {
+		95484BFE2931A8BB0021B21B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 95484BAD293126BE0021B21B /* ChallengeAnimalUser */;
-			targetProxy = 95484BC5293126BF0021B21B /* PBXContainerItemProxy */;
-		};
-		95484BD0293126BF0021B21B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 95484BAD293126BE0021B21B /* ChallengeAnimalUser */;
-			targetProxy = 95484BCF293126BF0021B21B /* PBXContainerItemProxy */;
+			targetProxy = 95484BFD2931A8BB0021B21B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -356,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -410,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -444,9 +370,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.ChallengeAnimalUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -474,85 +403,56 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.ChallengeAnimalUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		95484BDC293126BF0021B21B /* Debug */ = {
+		95484C002931A8BB0021B21B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.ChallengeAnimalUserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChallengeAnimalUser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChallengeAnimalUser";
 			};
 			name = Debug;
 		};
-		95484BDD293126BF0021B21B /* Release */ = {
+		95484C012931A8BB0021B21B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.ChallengeAnimalUserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChallengeAnimalUser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChallengeAnimalUser";
-			};
-			name = Release;
-		};
-		95484BDF293126BF0021B21B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 35GM6XG62S;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.ChallengeAnimalUserUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ChallengeAnimalUser;
-			};
-			name = Debug;
-		};
-		95484BE0293126BF0021B21B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 35GM6XG62S;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.ChallengeAnimalUserUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ChallengeAnimalUser;
 			};
 			name = Release;
 		};
@@ -577,20 +477,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95484BDB293126BF0021B21B /* Build configuration list for PBXNativeTarget "ChallengeAnimalUserTests" */ = {
+		95484BFF2931A8BB0021B21B /* Build configuration list for PBXNativeTarget "ChallengeAnimalUserTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				95484BDC293126BF0021B21B /* Debug */,
-				95484BDD293126BF0021B21B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		95484BDE293126BF0021B21B /* Build configuration list for PBXNativeTarget "ChallengeAnimalUserUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				95484BDF293126BF0021B21B /* Debug */,
-				95484BE0293126BF0021B21B /* Release */,
+				95484C002931A8BB0021B21B /* Debug */,
+				95484C012931A8BB0021B21B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

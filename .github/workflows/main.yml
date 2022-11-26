@@ -1,0 +1,16 @@
+name: Build and Tests
+on:
+  pull_request:
+    branches:
+    - development
+
+jobs:
+  test:
+    name: Run in Mac 
+    runs-on: macos-12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fastlane run tests
+        run: cd sideUser/; fastlane tests;
