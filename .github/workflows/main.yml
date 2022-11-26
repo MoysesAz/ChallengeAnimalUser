@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Fastlane run tests
-        run: ls -a
+        run: cd ChallengerAnimalUser/; fastlane tests;

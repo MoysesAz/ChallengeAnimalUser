@@ -23,5 +23,6 @@ platform :ios do
 end
 
 lane :tests do
-  run_tests(scheme: "ChallengeAnimalUser")
+  run_tests(scheme: "ChallengeAnimalUser",
+)
 end
