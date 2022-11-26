@@ -12,11 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Entering in project
+        run: cd ChallengeAnimalUser
+
       - name: Bundle installs
         run: bundle install
 
-      - name: Entering in project 
-        run: cd ChallengeAnimalUser
-     
       - name: Unit tests
         run: bundle exec fastlane tests
