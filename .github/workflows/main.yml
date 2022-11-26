@@ -15,8 +15,5 @@ jobs:
       - name: Entering in project
         run: cd ChallengeAnimalUser
 
-      - name: Bundle installs
-        run: bundle install
-
       - name: Unit tests
-        run: bundle exec fastlane tests
+        run: fastlane tests
