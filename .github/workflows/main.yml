@@ -12,5 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fastlane run tests
-        run: cd ChallengeAnimalUser; fastlane tests;
+      - name: Bundle installs
+        run: bundle install
+     
+      - name: Unit tests
+        run: bundle exec fastlane tests
