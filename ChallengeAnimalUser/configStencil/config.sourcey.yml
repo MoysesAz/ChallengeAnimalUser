@@ -1,0 +1,13 @@
+configurations:
+    - sources:
+        - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/View
+      templates:
+        - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/FramesStencils/autoViewConstraints.stencil
+      output: /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/View
+
+
+#    - sources:
+#        - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/Model
+#      templates:
+#        - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/FramesStencils/autoEquatable.stencil
+#      output: /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/Model

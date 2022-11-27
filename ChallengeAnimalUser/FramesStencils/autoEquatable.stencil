@@ -1,0 +1,10 @@
+{% for type in typeso.implementing.AutoEquatable %}
+/* {{ type.name}}Frame:
+    static func ==(lhs: {{ type.name}}, rhs: {{ type.name }}) -> Bool {
+        {% for var in type.varariables %}
+        lhs.{{ var.name }} == rhs.{{ var.name }} &&
+        {% endfor %}
+}
+*/
+{% endfor %} 
+

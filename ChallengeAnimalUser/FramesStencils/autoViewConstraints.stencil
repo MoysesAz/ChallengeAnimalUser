@@ -1,0 +1,28 @@
+{% for type in types.implementing.AutoViewConstraints %}
+/* {{ type.name }}Frame:
+extension {{type.name}} {
+    func setConstraint() {
+    {% for var in type.variables %}
+        {{ var.name }}Constraints()
+    {% endfor %}
+    }
+
+    {% for var in type.variables %}
+    func {{ var.name }}Constraints() {
+        NSLayoutConstraint.activate([
+            {{ var.name }}.topAnchor.constraint(equalTo: topAnchor),
+            {{ var.name }}.bottomAnchor.constraint(equalTo: bottomAnchor),
+            {{ var.name }}.leadingAnchor.constraint(equalTo: leadingAnchor),
+            {{ var.name }}.trailingAnchor.constraint(equalTo: trailingAnchor),
+            {{ var.name }}.heightAnchor.constraint(equalTo: heightAnchor),
+            {{ var.name }}.widthAnchor.constraint(equalTo: widthAnchor),
+            {{ var.name }}.centerYAnchor.constraint(equalTo: centerYAnchor),
+            {{ var.name }}.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+
+    {% endfor %}
+}
+*/
+{% endfor %}
+
