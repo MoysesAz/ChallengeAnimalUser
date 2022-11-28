@@ -1,19 +1,19 @@
 //
-//  ViewController.swift
+//  AnimalsController.swift
 //  ChallengeAnimalUser
 //
-//  Created by Moyses Miranda do Vale Azevedo on 25/11/22.
+//  Created by Moyses Miranda do Vale Azevedo on 28/11/22.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    var viewModel: SheltersViewModel
-    var contentView: SheltersViewProtocol
+class AnimalsController: UIViewController {
+    var viewModel: AnimalViewModel
+    var contentView: AnimalsViewProtocol
     var mycloud = MyCloud()
     var teste = ["Moyses", "teste", "BRUTUS"]
 
-    init(contentView: some SheltersViewProtocol = ListOfSheltersView(),
+    init(contentView: some AnimalsViewProtocol = ListOfAnimalsView(),
          viewModel: SheltersViewModel = SheltersViewModel()) {
         self.contentView = contentView
         self.viewModel = viewModel
@@ -34,12 +34,19 @@ class ViewController: UIViewController {
         contentView.tableShelters.delegate = self
         contentView.tableShelters.dataSource = self
         mycloud.filterRecords(recordType: .shelter, dataBase: mycloud.publishContainer)
+        mycloud.cache.bind{ value in
+            DispatchQueue.main.async {
+                if value != nil {
+                    print(value)
+                }
+            }
         }
     }
+}
 
-extension ViewController: UITableViewDelegate {}
+extension AnimalsController: UITableViewDelegate {}
 
-extension ViewController: UITableViewDataSource {
+extension AnimalsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teste.count
     }

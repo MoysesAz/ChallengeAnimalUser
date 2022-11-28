@@ -9,22 +9,22 @@ import Foundation
 import CloudKit
 
 class MyCloud {
-    var cache: [String] = []
+    var cache: ObservableObject<[CKRecord]?> = ObservableObject(nil)
 //    cache tem que ser um modelo que receba todos os dados $0.0, record
     let publishContainer = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
 
-    func filterRecords(recordType: RecordsNamesEnum, dataBase: CKDatabase) {
-        let test = NSPredicate(value: true)
-        let query = CKQuery(recordType: recordType.rawValue, predicate: test )
+    func filterRecords(recordType: RecordsNamesEnum, dataBase: CKDatabase, filter: String = "") {
+        var predicate = NSPredicate(value: true)
+        if filter != "" { predicate = NSPredicate(format: filter)}
+
+        let query = CKQuery(recordType: recordType.rawValue, predicate: predicate)
         dataBase.fetch(withQuery: query) { records in
             switch records {
             case .success(let value):
-                var _ = value.matchResults.map({
+            var _ = value.matchResults.map({
                     switch $0.1 {
                     case .success(let record):
-                        //Criar decoder do valor e armazenar no cache
-                        print($0.0)
-                        print(record)
+                        self.cache.value?.append(record)
                     case .failure(let error):
                         print(error)
                     }

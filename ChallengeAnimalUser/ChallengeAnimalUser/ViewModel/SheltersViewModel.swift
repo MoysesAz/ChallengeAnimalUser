@@ -9,4 +9,5 @@ import Foundation
 import CloudKit
 
 class SheltersViewModel {
+
 }
