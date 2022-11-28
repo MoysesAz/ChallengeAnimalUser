@@ -14,7 +14,14 @@
 		95484BBB293126BF0021B21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBA293126BF0021B21B /* Assets.xcassets */; };
 		95484BBE293126BF0021B21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBC293126BF0021B21B /* LaunchScreen.storyboard */; };
 		95484BFC2931A8BB0021B21B /* ChallengeAnimalUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */; };
+		95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C0462934351F006880A4 /* ObservableObject.swift */; };
+		95E5C0492934DA4E006880A4 /* MyCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C0482934DA4E006880A4 /* MyCloud.swift */; };
 		95FBA37B29339B560071F130 /* autoViewConstraints.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37A29339B560071F130 /* autoViewConstraints.generated.swift */; };
+		95FBA37D29339D0C0071F130 /* ListOfSheltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37C29339D0C0071F130 /* ListOfSheltersView.swift */; };
+		95FBA37F2933B7CE0071F130 /* SheltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */; };
+		95FBA3822933B9B60071F130 /* SheltersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3812933B9B60071F130 /* SheltersViewProtocol.swift */; };
+		95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3832933D2DA0071F130 /* ShelterModel.swift */; };
+		95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +48,14 @@
 		95484BE129312D950021B21B /* ChallengeAnimalUser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChallengeAnimalUser.entitlements; sourceTree = "<group>"; };
 		95484BF92931A8BB0021B21B /* ChallengeAnimalUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAnimalUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserTests.swift; sourceTree = "<group>"; };
+		95E5C0462934351F006880A4 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
+		95E5C0482934DA4E006880A4 /* MyCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCloud.swift; sourceTree = "<group>"; };
 		95FBA37A29339B560071F130 /* autoViewConstraints.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = autoViewConstraints.generated.swift; sourceTree = "<group>"; };
+		95FBA37C29339D0C0071F130 /* ListOfSheltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSheltersView.swift; sourceTree = "<group>"; };
+		95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheltersViewModel.swift; sourceTree = "<group>"; };
+		95FBA3812933B9B60071F130 /* SheltersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheltersViewProtocol.swift; sourceTree = "<group>"; };
+		95FBA3832933D2DA0071F130 /* ShelterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterModel.swift; sourceTree = "<group>"; };
+		95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsNamesEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +79,9 @@
 		9547E64F293387AC0074C4D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95FBA3802933B99D0071F130 /* Protocol */,
 				95FBA37A29339B560071F130 /* autoViewConstraints.generated.swift */,
+				95FBA37C29339D0C0071F130 /* ListOfSheltersView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -73,6 +89,8 @@
 		9547E650293387B30074C4D9 /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
+				95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */,
+				95E5C0482934DA4E006880A4 /* MyCloud.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -80,6 +98,8 @@
 		9547E651293387C20074C4D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95FBA3832933D2DA0071F130 /* ShelterModel.swift */,
+				95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +142,7 @@
 				95484BE129312D950021B21B /* ChallengeAnimalUser.entitlements */,
 				95484BB1293126BF0021B21B /* AppDelegate.swift */,
 				95484BB3293126BF0021B21B /* SceneDelegate.swift */,
+				95E5C0462934351F006880A4 /* ObservableObject.swift */,
 				95484BB5293126BF0021B21B /* ViewController.swift */,
 				95484BBA293126BF0021B21B /* Assets.xcassets */,
 				95484BBC293126BF0021B21B /* LaunchScreen.storyboard */,
@@ -136,6 +157,14 @@
 				95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */,
 			);
 			path = ChallengeAnimalUserTests;
+			sourceTree = "<group>";
+		};
+		95FBA3802933B99D0071F130 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				95FBA3812933B9B60071F130 /* SheltersViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +289,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95FBA37F2933B7CE0071F130 /* SheltersViewModel.swift in Sources */,
+				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
+				95FBA3822933B9B60071F130 /* SheltersViewProtocol.swift in Sources */,
 				95484BB6293126BF0021B21B /* ViewController.swift in Sources */,
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
+				95FBA37D29339D0C0071F130 /* ListOfSheltersView.swift in Sources */,
+				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
+				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
+				95E5C0492934DA4E006880A4 /* MyCloud.swift in Sources */,
 				95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */,
 				95FBA37B29339B560071F130 /* autoViewConstraints.generated.swift in Sources */,
 			);

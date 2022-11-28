@@ -1,25 +1,24 @@
 // Generated using Sourcery 1.9.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-/* TesteFrame:
-extension Teste {
+/* ListOfSheltersViewFrame:
+extension ListOfSheltersView {
     func setConstraint() {
-        testeConstraints()
+        tableSheltersConstraints()
     }
 
-    func testeConstraints() {
+    func tableSheltersConstraints() {
         NSLayoutConstraint.activate([
-            teste.topAnchor.constraint(equalTo: topAnchor),
-            teste.bottomAnchor.constraint(equalTo: bottomAnchor),
-            teste.leadingAnchor.constraint(equalTo: leadingAnchor),
-            teste.trailingAnchor.constraint(equalTo: trailingAnchor),
-            teste.heightAnchor.constraint(equalTo: heightAnchor),
-            teste.widthAnchor.constraint(equalTo: widthAnchor),
-            teste.centerYAnchor.constraint(equalTo: centerYAnchor),
-            teste.centerXAnchor.constraint(equalTo: centerXAnchor)
+            tableShelters.topAnchor.constraint(equalTo: topAnchor),
+            tableShelters.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableShelters.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableShelters.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableShelters.heightAnchor.constraint(equalTo: heightAnchor),
+            tableShelters.widthAnchor.constraint(equalTo: widthAnchor),
+            tableShelters.centerYAnchor.constraint(equalTo: centerYAnchor),
+            tableShelters.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 
 }
 */
-
