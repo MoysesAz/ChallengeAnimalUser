@@ -7,14 +7,14 @@
 
 import UIKit
 
-class AnimalsController: UIViewController {
-    var viewModel: AnimalViewModel
-    var contentView: AnimalsViewProtocol
+class ListOfAnimalsController: UIViewController {
+    var viewModel: ListOfAnimalsViewModel
+    var contentView: ListOfAnimalsViewProtocol
     var mycloud = MyCloud()
-    var teste = ["Moyses", "teste", "BRUTUS"]
+    var teste = ["Amor", "Gravidade", "Cafe", "Biscoito"]
 
-    init(contentView: some AnimalsViewProtocol = ListOfAnimalsView(),
-         viewModel: SheltersViewModel = SheltersViewModel()) {
+    init(contentView: some ListOfAnimalsViewProtocol = ListOfAnimalsView(),
+         viewModel: ListOfAnimalsViewModel) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -30,9 +30,9 @@ class AnimalsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.tableShelters.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        contentView.tableShelters.delegate = self
-        contentView.tableShelters.dataSource = self
+        contentView.tableAnimal.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        contentView.tableAnimal.delegate = self
+        contentView.tableAnimal.dataSource = self
         mycloud.filterRecords(recordType: .shelter, dataBase: mycloud.publishContainer)
         mycloud.cache.bind{ value in
             DispatchQueue.main.async {
@@ -44,15 +44,15 @@ class AnimalsController: UIViewController {
     }
 }
 
-extension AnimalsController: UITableViewDelegate {}
+extension ListOfAnimalsController: UITableViewDelegate {}
 
-extension AnimalsController: UITableViewDataSource {
+extension ListOfAnimalsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teste.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = contentView.tableShelters.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = contentView.tableAnimal.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = teste[indexPath.row]
         return cell
     }

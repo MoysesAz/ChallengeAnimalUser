@@ -7,6 +7,11 @@
 
 import Foundation
 
-class AnimalViewModel {
+class ListOfAnimalsViewModel {
+    let animalID: Int
+
+    init(animalID: Int) {
+       self.animalID = animalID
+   }
 
 }

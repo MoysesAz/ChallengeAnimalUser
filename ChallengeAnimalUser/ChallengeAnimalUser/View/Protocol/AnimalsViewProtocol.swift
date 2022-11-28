@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
+protocol ListOfAnimalsViewProtocol: UIView {
+    var tableAnimal: UITableView { get }
+}
