@@ -10,7 +10,7 @@ import UIKit
 
 protocol AutoViewConstraints {}
 
-class ListOfSheltersView: UIView {
+class ShelterView: UIView {
     lazy var tableShelters: UITableView = {
         let tableShelters = UITableView()
         tableShelters.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +23,7 @@ class ListOfSheltersView: UIView {
     }
 }
 
-extension ListOfSheltersView {
+extension ShelterView {
     func setConstraint() {
         tableSheltersConstraints()
     }
@@ -39,4 +39,4 @@ extension ListOfSheltersView {
 
 }
 
-extension ListOfSheltersView: SheltersViewProtocol {}
+extension ShelterView: SheltersViewProtocol {}

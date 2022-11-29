@@ -7,11 +7,11 @@
 
 struct Shelter {
     var name: String
-    var image: UIImage
+    var image: URL?
 }
 
-
 import UIKit
+import SDWebImage
 
 final class ShelterTableViewCell: UITableViewCell {
 
@@ -54,7 +54,7 @@ final class ShelterTableViewCell: UITableViewCell {
     }
 
     private func configureCell() {
-        shelterImage.image = shelterInfo?.image
+        shelterImage.sd_setImage(with: shelterInfo?.image)
         shelterLabel.text = shelterInfo?.name
     }
 

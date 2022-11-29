@@ -8,16 +8,16 @@
 import UIKit
 import CloudKit
 
-class ViewController: UIViewController {
-    var viewModel: SheltersViewModel
+class ShelterViewController: UIViewController {
+    var viewModel: ShelterViewModel
     var contentView: SheltersViewProtocol
     var mycloud = MyCloud()
     var teste = ["São Lazaro", "Abrigo dos Gatos"]
     var teste2: [Shelter] = []
     var testeRecord: [CKRecord] = []
 
-    init(contentView: some SheltersViewProtocol = ListOfSheltersView(),
-         viewModel: SheltersViewModel = SheltersViewModel()) {
+    init(contentView: some SheltersViewProtocol = ShelterView(),
+         viewModel: ShelterViewModel = ShelterViewModel()) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,7 +33,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.tableShelters.register(ShelterTableViewCell.self, forCellReuseIdentifier: ShelterTableViewCell.identifier)
+        contentView.tableShelters.register(
+            ShelterTableViewCell.self,
+            forCellReuseIdentifier: ShelterTableViewCell.identifier
+        )
         contentView.tableShelters.delegate = self
         contentView.tableShelters.dataSource = self
         mycloud.filterRecords(recordType: .shelter, dataBase: mycloud.publishContainer)
@@ -50,7 +53,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension ShelterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewModel = ListOfAnimalsViewModel(animalID: indexPath.row)
         let controller = ListOfAnimalsController(viewModel: viewModel)
@@ -58,7 +61,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ShelterViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
@@ -69,7 +72,14 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return makeShelterCell(tableView, cellForRowAt: indexPath)
+    }
 
+}
+
+// MARK: - Mover para a camada ViewModel
+extension ShelterViewController {
+    func makeShelterCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ShelterTableViewCell.identifier,
             for: indexPath
@@ -77,14 +87,11 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        var cellInfo: Shelter = Shelter(name: "", image: UIImage())
         let name = testeRecord[indexPath.row].value(forKey: "shelterName") as! String
         let image: CKAsset = testeRecord[indexPath.row].object(forKey: "logo") as! CKAsset
 
-        let imageUI: UIImage = image.toUIImage()!
-
-        cellInfo.name = name
-        cellInfo.image = imageUI
+        let imageURL: URL? = URL(string: image.fileURL!.absoluteString)
+        let cellInfo = Shelter(name: name, image: imageURL)
 
         cell.shelterInfo = cellInfo
 

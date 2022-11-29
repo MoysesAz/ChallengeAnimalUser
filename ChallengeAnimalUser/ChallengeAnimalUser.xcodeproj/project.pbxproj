@@ -10,10 +10,13 @@
 		8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */; };
 		8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3AA293648BC0032BAC9 /* ViewCoding.swift */; };
 		852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A026029366D8200C4B7D0 /* CKAsset+.swift */; };
+		852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A02622936BEBD00C4B7D0 /* UIImageView+.swift */; };
+		852A026A2936C37D00C4B7D0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 852A02692936C37D00C4B7D0 /* SDWebImage */; };
+		852A026C2936C37D00C4B7D0 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 852A026B2936C37D00C4B7D0 /* SDWebImageMapKit */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
-		95484BB6293126BF0021B21B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB5293126BF0021B21B /* ViewController.swift */; };
+		95484BB6293126BF0021B21B /* ShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB5293126BF0021B21B /* ShelterViewController.swift */; };
 		95484BBB293126BF0021B21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBA293126BF0021B21B /* Assets.xcassets */; };
 		95484BBE293126BF0021B21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBC293126BF0021B21B /* LaunchScreen.storyboard */; };
 		95484BFC2931A8BB0021B21B /* ChallengeAnimalUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */; };
@@ -25,7 +28,7 @@
 		95E5C052293575AC006880A4 /* ListOfAnimalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C051293575AC006880A4 /* ListOfAnimalsViewModel.swift */; };
 		95FBA37B29339B560071F130 /* autoViewConstraints.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37A29339B560071F130 /* autoViewConstraints.generated.swift */; };
 		95FBA37D29339D0C0071F130 /* ListOfSheltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37C29339D0C0071F130 /* ListOfSheltersView.swift */; };
-		95FBA37F2933B7CE0071F130 /* SheltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */; };
+		95FBA37F2933B7CE0071F130 /* ShelterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37E2933B7CE0071F130 /* ShelterViewModel.swift */; };
 		95FBA3822933B9B60071F130 /* SheltersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3812933B9B60071F130 /* SheltersViewProtocol.swift */; };
 		95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3832933D2DA0071F130 /* ShelterModel.swift */; };
 		95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */; };
@@ -45,13 +48,14 @@
 		8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterTableViewCell.swift; sourceTree = "<group>"; };
 		8505B3AA293648BC0032BAC9 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		852A026029366D8200C4B7D0 /* CKAsset+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+.swift"; sourceTree = "<group>"; };
+		852A02622936BEBD00C4B7D0 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
 		95484BAE293126BF0021B21B /* ChallengeAnimalUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeAnimalUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95484BB1293126BF0021B21B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95484BB3293126BF0021B21B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		95484BB5293126BF0021B21B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95484BB5293126BF0021B21B /* ShelterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterViewController.swift; sourceTree = "<group>"; };
 		95484BBA293126BF0021B21B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95484BBD293126BF0021B21B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95484BBF293126BF0021B21B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +70,7 @@
 		95E5C051293575AC006880A4 /* ListOfAnimalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfAnimalsViewModel.swift; sourceTree = "<group>"; };
 		95FBA37A29339B560071F130 /* autoViewConstraints.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = autoViewConstraints.generated.swift; sourceTree = "<group>"; };
 		95FBA37C29339D0C0071F130 /* ListOfSheltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSheltersView.swift; sourceTree = "<group>"; };
-		95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheltersViewModel.swift; sourceTree = "<group>"; };
+		95FBA37E2933B7CE0071F130 /* ShelterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterViewModel.swift; sourceTree = "<group>"; };
 		95FBA3812933B9B60071F130 /* SheltersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheltersViewProtocol.swift; sourceTree = "<group>"; };
 		95FBA3832933D2DA0071F130 /* ShelterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterModel.swift; sourceTree = "<group>"; };
 		95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsNamesEnum.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852A026C2936C37D00C4B7D0 /* SDWebImageMapKit in Frameworks */,
+				852A026A2936C37D00C4B7D0 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +163,7 @@
 				95E5C0462934351F006880A4 /* ObservableObject.swift */,
 				8505B3AA293648BC0032BAC9 /* ViewCoding.swift */,
 				852A026029366D8200C4B7D0 /* CKAsset+.swift */,
+				852A02622936BEBD00C4B7D0 /* UIImageView+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -217,7 +224,7 @@
 		9547E650293387B30074C4D9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */,
+				95FBA37E2933B7CE0071F130 /* ShelterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -286,7 +293,7 @@
 		95E5C04E293574E8006880A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95484BB5293126BF0021B21B /* ViewController.swift */,
+				95484BB5293126BF0021B21B /* ShelterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -317,6 +324,10 @@
 			dependencies = (
 			);
 			name = ChallengeAnimalUser;
+			packageProductDependencies = (
+				852A02692936C37D00C4B7D0 /* SDWebImage */,
+				852A026B2936C37D00C4B7D0 /* SDWebImageMapKit */,
+			);
 			productName = ChallengeAnimalUser;
 			productReference = 95484BAE293126BF0021B21B /* ChallengeAnimalUser.app */;
 			productType = "com.apple.product-type.application";
@@ -367,6 +378,9 @@
 				Base,
 			);
 			mainGroup = 95484BA5293126BE0021B21B;
+			packageReferences = (
+				852A02682936C37D00C4B7D0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 95484BAF293126BF0021B21B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -422,13 +436,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95FBA37F2933B7CE0071F130 /* SheltersViewModel.swift in Sources */,
+				95FBA37F2933B7CE0071F130 /* ShelterViewModel.swift in Sources */,
 				95E5C052293575AC006880A4 /* ListOfAnimalsViewModel.swift in Sources */,
 				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
 				95FBA3822933B9B60071F130 /* SheltersViewProtocol.swift in Sources */,
-				95484BB6293126BF0021B21B /* ViewController.swift in Sources */,
+				95484BB6293126BF0021B21B /* ShelterViewController.swift in Sources */,
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
 				95FBA37D29339D0C0071F130 /* ListOfSheltersView.swift in Sources */,
+				852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */,
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
 				8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */,
 				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
@@ -730,6 +745,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		852A02682936C37D00C4B7D0 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		852A02692936C37D00C4B7D0 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 852A02682936C37D00C4B7D0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		852A026B2936C37D00C4B7D0 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 852A02682936C37D00C4B7D0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 95484BA6293126BE0021B21B /* Project object */;
 }
