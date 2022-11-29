@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */; };
+		8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3AA293648BC0032BAC9 /* ViewCoding.swift */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterTableViewCell.swift; sourceTree = "<group>"; };
+		8505B3AA293648BC0032BAC9 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 		8505B39729362E270032BAC9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8505B3A4293648320032BAC9 /* Animal */,
 				8505B39D29362EE20032BAC9 /* LaunchScreen */,
 				8505B39829362E320032BAC9 /* Home */,
 			);
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				95E5C0462934351F006880A4 /* ObservableObject.swift */,
+				8505B3AA293648BC0032BAC9 /* ViewCoding.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -160,13 +166,47 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		8505B3A4293648320032BAC9 /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				8505B3A7293648480032BAC9 /* Controller */,
+				8505B3A6293648410032BAC9 /* ViewModel */,
+				8505B3A52936483B0032BAC9 /* View */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		8505B3A52936483B0032BAC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C04A29356F0B006880A4 /* ListOfAnimalsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8505B3A6293648410032BAC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C051293575AC006880A4 /* ListOfAnimalsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8505B3A7293648480032BAC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C04F29357555006880A4 /* ListOfAnimalsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		9547E64F293387AC0074C4D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				95FBA3802933B99D0071F130 /* Protocol */,
 				95FBA37A29339B560071F130 /* autoViewConstraints.generated.swift */,
 				95FBA37C29339D0C0071F130 /* ListOfSheltersView.swift */,
-				95E5C04A29356F0B006880A4 /* ListOfAnimalsView.swift */,
+				8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */,
-				95E5C051293575AC006880A4 /* ListOfAnimalsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				95484BB5293126BF0021B21B /* ViewController.swift */,
-				95E5C04F29357555006880A4 /* ListOfAnimalsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,6 +427,7 @@
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
 				95FBA37D29339D0C0071F130 /* ListOfSheltersView.swift in Sources */,
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
+				8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */,
 				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
 				95E5C0492934DA4E006880A4 /* MyCloud.swift in Sources */,
 				95E5C05029357555006880A4 /* ListOfAnimalsController.swift in Sources */,
@@ -396,6 +435,7 @@
 				95E5C04D29356F72006880A4 /* AnimalsViewProtocol.swift in Sources */,
 				95FBA37B29339B560071F130 /* autoViewConstraints.generated.swift in Sources */,
 				95E5C04B29356F0B006880A4 /* ListOfAnimalsView.swift in Sources */,
+				8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

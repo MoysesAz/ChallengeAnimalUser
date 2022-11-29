@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.tableShelters.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        contentView.tableShelters.register(ShelterTableViewCell.self, forCellReuseIdentifier: ShelterTableViewCell.identifier)
         contentView.tableShelters.delegate = self
         contentView.tableShelters.dataSource = self
         mycloud.filterRecords(recordType: .shelter, dataBase: mycloud.publishContainer)
@@ -55,13 +55,25 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teste.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = contentView.tableShelters.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = teste[indexPath.row]
+
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ShelterTableViewCell.identifier,
+            for: indexPath
+        ) as? ShelterTableViewCell else {
+            return UITableViewCell()
+        }
+
+
         return cell
     }
 }
