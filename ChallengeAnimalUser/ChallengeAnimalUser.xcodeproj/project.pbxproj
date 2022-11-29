@@ -84,6 +84,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8505B39529362E180032BAC9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8505B39929362E680032BAC9 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8505B39629362E200032BAC9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9547E651293387C20074C4D9 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8505B39729362E270032BAC9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8505B39D29362EE20032BAC9 /* LaunchScreen */,
+				8505B39829362E320032BAC9 /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8505B39829362E320032BAC9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C04E293574E8006880A4 /* Controller */,
+				9547E650293387B30074C4D9 /* ViewModel */,
+				9547E64F293387AC0074C4D9 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8505B39929362E680032BAC9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C0482934DA4E006880A4 /* MyCloud.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		8505B39A29362EA60032BAC9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				95484BB3293126BF0021B21B /* SceneDelegate.swift */,
+				95484BB1293126BF0021B21B /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8505B39B29362EB50032BAC9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				95484BBA293126BF0021B21B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8505B39C29362ECC0032BAC9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C0462934351F006880A4 /* ObservableObject.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8505B39D29362EE20032BAC9 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				95484BBC293126BF0021B21B /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		9547E64F293387AC0074C4D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +176,6 @@
 			children = (
 				95FBA37E2933B7CE0071F130 /* SheltersViewModel.swift */,
 				95E5C051293575AC006880A4 /* ListOfAnimalsViewModel.swift */,
-				95E5C0482934DA4E006880A4 /* MyCloud.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -146,16 +221,13 @@
 		95484BB0293126BF0021B21B /* ChallengeAnimalUser */ = {
 			isa = PBXGroup;
 			children = (
-				95E5C04E293574E8006880A4 /* Controller */,
-				9547E651293387C20074C4D9 /* Model */,
-				9547E650293387B30074C4D9 /* ViewModel */,
-				9547E64F293387AC0074C4D9 /* View */,
 				95484BE129312D950021B21B /* ChallengeAnimalUser.entitlements */,
-				95484BB1293126BF0021B21B /* AppDelegate.swift */,
-				95484BB3293126BF0021B21B /* SceneDelegate.swift */,
-				95E5C0462934351F006880A4 /* ObservableObject.swift */,
-				95484BBA293126BF0021B21B /* Assets.xcassets */,
-				95484BBC293126BF0021B21B /* LaunchScreen.storyboard */,
+				8505B39B29362EB50032BAC9 /* Resources */,
+				8505B39A29362EA60032BAC9 /* Application */,
+				8505B39729362E270032BAC9 /* Presentation */,
+				8505B39629362E200032BAC9 /* Domain */,
+				8505B39529362E180032BAC9 /* Data */,
+				8505B39C29362ECC0032BAC9 /* Utils */,
 				95484BBF293126BF0021B21B /* Info.plist */,
 			);
 			path = ChallengeAnimalUser;
@@ -485,7 +557,6 @@
 				INFOPLIST_FILE = ChallengeAnimalUser/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -520,7 +591,6 @@
 				INFOPLIST_FILE = ChallengeAnimalUser/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
