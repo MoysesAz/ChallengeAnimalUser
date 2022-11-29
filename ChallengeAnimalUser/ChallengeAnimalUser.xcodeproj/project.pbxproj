@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */; };
 		8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3AA293648BC0032BAC9 /* ViewCoding.swift */; };
+		852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A026029366D8200C4B7D0 /* CKAsset+.swift */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterTableViewCell.swift; sourceTree = "<group>"; };
 		8505B3AA293648BC0032BAC9 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
+		852A026029366D8200C4B7D0 /* CKAsset+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+.swift"; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				95E5C0462934351F006880A4 /* ObservableObject.swift */,
 				8505B3AA293648BC0032BAC9 /* ViewCoding.swift */,
+				852A026029366D8200C4B7D0 /* CKAsset+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				95E5C05029357555006880A4 /* ListOfAnimalsController.swift in Sources */,
 				95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */,
 				95E5C04D29356F72006880A4 /* AnimalsViewProtocol.swift in Sources */,
+				852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */,
 				95FBA37B29339B560071F130 /* autoViewConstraints.generated.swift in Sources */,
 				95E5C04B29356F0B006880A4 /* ListOfAnimalsView.swift in Sources */,
 				8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */,

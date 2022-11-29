@@ -3,15 +3,18 @@
 //  ChallengeAnimalUser
 //
 //  Created by Moyses Miranda do Vale Azevedo on 25/11/22.
-//
+//  swiftlint:disable force_cast
 
 import UIKit
+import CloudKit
 
 class ViewController: UIViewController {
     var viewModel: SheltersViewModel
     var contentView: SheltersViewProtocol
     var mycloud = MyCloud()
     var teste = ["São Lazaro", "Abrigo dos Gatos"]
+    var teste2: [Shelter] = []
+    var testeRecord: [CKRecord] = []
 
     init(contentView: some SheltersViewProtocol = ListOfSheltersView(),
          viewModel: SheltersViewModel = SheltersViewModel()) {
@@ -39,7 +42,8 @@ class ViewController: UIViewController {
                 if value != nil {
                     guard let value else {return}
                     print(value)
-                    self.teste = value.map { $0.recordType }
+                    self.testeRecord = value.map { $0 }
+                    self.contentView.tableShelters.reloadData()
                 }
             }
         }
@@ -61,7 +65,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teste.count
+        return testeRecord.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,6 +77,16 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
+        var cellInfo: Shelter = Shelter(name: "", image: UIImage())
+        let name = testeRecord[indexPath.row].value(forKey: "shelterName") as! String
+        let image: CKAsset = testeRecord[indexPath.row].object(forKey: "logo") as! CKAsset
+
+        let imageUI: UIImage = image.toUIImage()!
+
+        cellInfo.name = name
+        cellInfo.image = imageUI
+
+        cell.shelterInfo = cellInfo
 
         return cell
     }

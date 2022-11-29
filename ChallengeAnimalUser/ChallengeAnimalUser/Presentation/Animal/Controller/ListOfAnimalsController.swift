@@ -33,7 +33,7 @@ class ListOfAnimalsController: UIViewController {
         contentView.tableAnimal.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         contentView.tableAnimal.delegate = self
         contentView.tableAnimal.dataSource = self
-        mycloud.filterRecords(recordType: .animal, dataBase: mycloud.publishContainer)
+//        mycloud.filterRecords(recordType: .animal, dataBase: mycloud.publishContainer)
         mycloud.cache.bind { value in
             DispatchQueue.main.async {
                 if value != nil {

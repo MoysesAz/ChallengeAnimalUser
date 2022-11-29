@@ -5,17 +5,29 @@
 //  Created by Joan Wilson Oliveira on 29/11/22.
 //
 
+struct Shelter {
+    var name: String
+    var image: UIImage
+}
+
+
 import UIKit
 
 final class ShelterTableViewCell: UITableViewCell {
 
     static var identifier = "ShelterTableViewCell"
 
+    var shelterInfo: Shelter? {
+        didSet {
+            configureCell()
+        }
+    }
+
     lazy var shelterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person")
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .red
+        imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         return imageView
@@ -24,7 +36,7 @@ final class ShelterTableViewCell: UITableViewCell {
     lazy var shelterLabel: UILabel = {
         let label = UILabel()
         label.text = "Abrigo Indefinido"
-        label.backgroundColor = .green
+        label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -41,6 +53,11 @@ final class ShelterTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    private func configureCell() {
+        shelterImage.image = shelterInfo?.image
+        shelterLabel.text = shelterInfo?.name
+    }
+
 }
 
 extension ShelterTableViewCell: ViewCoding {
@@ -55,17 +72,15 @@ extension ShelterTableViewCell: ViewCoding {
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            shelterImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            shelterImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.bounds.width*0.08),
             shelterImage.heightAnchor.constraint(equalToConstant: 60),
+            shelterImage.widthAnchor.constraint(equalToConstant: 60),
+            shelterImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
-
-            shelterLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor, constant: 30),
-            shelterLabel.heightAnchor.constraint(equalToConstant: 30),
-            shelterLabel.widthAnchor.constraint(equalToConstant: 40)
+            shelterLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor, constant: self.bounds.width*0.1)
         ])
 
     }
-
 
 }
