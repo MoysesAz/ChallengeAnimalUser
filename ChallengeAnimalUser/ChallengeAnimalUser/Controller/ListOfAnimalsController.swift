@@ -1,7 +1,7 @@
 //
 //  AnimalsController.swift
 //  ChallengeAnimalUser
-//
+//  swiftlint: disable force_cast
 //  Created by Moyses Miranda do Vale Azevedo on 28/11/22.
 //
 
@@ -38,7 +38,7 @@ class ListOfAnimalsController: UIViewController {
             DispatchQueue.main.async {
                 if value != nil {
                     guard let value else {return}
-                    self.teste = value.map { $0.recordType}
+                    self.teste = value.map { $0.value(forKey: "nameAnimal") as! String}
                     self.contentView.tableAnimal.reloadData()
                 }
             }
