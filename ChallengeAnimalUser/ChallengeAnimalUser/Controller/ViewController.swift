@@ -34,10 +34,12 @@ class ViewController: UIViewController {
         contentView.tableShelters.delegate = self
         contentView.tableShelters.dataSource = self
         mycloud.filterRecords(recordType: .shelter, dataBase: mycloud.publishContainer)
-        mycloud.cache.bind{ value in
+        mycloud.cache.bind { value in
             DispatchQueue.main.async {
                 if value != nil {
+                    guard let value else {return}
                     print(value)
+                    self.teste = value.map { $0.recordType }
                 }
             }
         }
