@@ -8,19 +8,18 @@
 import UIKit
 import CloudKit
 
-protocol ShelterViewControllerDelegate: AnyObject {
-
-}
+protocol ShelterViewControllerDelegate: AnyObject {}
 
 class ShelterViewController: UIViewController {
     var viewModel: ShelterViewModel
     var contentView: SheltersViewProtocol
-    var cloudRepository = ICloudRepository(publishContainer: CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase)
-
+    var cloudRepository: ICloudRepositoryProtocol
     var testeRecord: [CKRecord] = []
 
-    init(contentView: some SheltersViewProtocol = ShelterView(),
+    init(cloudRepository: some ICloudRepositoryProtocol,
+         contentView: some SheltersViewProtocol = ShelterView(),
          viewModel: ShelterViewModel = ShelterViewModel()) {
+        self.cloudRepository = cloudRepository
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -60,7 +59,9 @@ extension ShelterViewController: UITableViewDelegate {
         let id = testeRecord[indexPath.row].recordID
         let reference = CKRecord.Reference(recordID: id, action: .none)
         let viewModel = PetViewModel(shelterId: reference)
-        let controller = PetController(viewModel: viewModel)
+        let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
+        let cloudRepository = ICloudRepository(publishContainer: repository)
+        let controller = PetViewController(cloudRepository: cloudRepository, viewModel: viewModel)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -102,4 +103,3 @@ extension ShelterViewController {
         return cell
     }
 }
-

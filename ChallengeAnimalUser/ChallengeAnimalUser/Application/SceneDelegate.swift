@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -16,7 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let controller: ShelterViewController = ShelterViewController()
+        let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
+        let cloudRepository = ICloudRepository(publishContainer: repository)
+        let controller: ShelterViewController = ShelterViewController(cloudRepository: cloudRepository)
         let navMainView = UINavigationController(rootViewController: controller)
         window.rootViewController = navMainView
         window.makeKeyAndVisible()
