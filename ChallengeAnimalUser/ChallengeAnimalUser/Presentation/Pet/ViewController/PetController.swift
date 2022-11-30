@@ -8,15 +8,15 @@
 import UIKit
 import CloudKit
 
-class ListOfAnimalsController: UIViewController {
-    var viewModel: ListOfAnimalsViewModel
+class PetController: UIViewController {
+    var viewModel: PetViewModel
     var contentView: AnimalViewProtocol
     var cloudRepository = ICloudRepository(
         publishContainer: CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase)
     var teste: [String] = []
 
     init(contentView: some AnimalViewProtocol = AnimalView(),
-         viewModel: ListOfAnimalsViewModel) {
+         viewModel: PetViewModel) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -53,9 +53,9 @@ class ListOfAnimalsController: UIViewController {
     }
 }
 
-extension ListOfAnimalsController: UITableViewDelegate {}
+extension PetController: UITableViewDelegate {}
 
-extension ListOfAnimalsController: UITableViewDataSource {
+extension PetController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teste.count
     }

@@ -34,7 +34,7 @@ class AnimalView: UIView {
     }
 }
 
-extension ListOfAnimalsView {
+extension AnimalView {
     func setConstraint() {
         indicatorConstraints()
         tableAnimalConstraints()
@@ -57,7 +57,7 @@ extension ListOfAnimalsView {
 
 }
 
-extension AnimalView: ListOfAnimalsViewProtocol {
+extension AnimalView: AnimalViewProtocol {
     func loadData() {
         tableAnimal.isHidden = true
         indicator.isHidden = false

@@ -10,18 +10,26 @@ import CloudKit
 protocol ICloudRepositoryProtocol {
     var cacheRecords: ObservableObject<[CKRecord]?> { get }
     var records: [CKRecord] { get }
+    var publishContainer: CKDatabase { get }
     func filterRecords(recordType: RecordsNamesEnum,
                        dataBase: CKDatabase,
                        filter: NSPredicate)
 }
 
-class ICloudRepository: ICloudRepositoryProtocol {
+final class ICloudRepository: ICloudRepositoryProtocol {
     var cacheRecords: ObservableObject<[CKRecord]?> = ObservableObject(nil)
     var records: [CKRecord] = []
-//    cache tem que ser um modelo que receba todos os dados $0.0, record
-    let publishContainer = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
 
-    func filterRecords(recordType: RecordsNamesEnum,
+//    cache tem que ser um modelo que receba todos os dados $0.0, record
+    let publishContainer: CKDatabase
+
+//    CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
+
+    init(publishContainer: CKDatabase) {
+        self.publishContainer = publishContainer
+    }
+
+    public func filterRecords(recordType: RecordsNamesEnum,
                        dataBase: CKDatabase,
                        filter: NSPredicate = NSPredicate(value: true)) {
 

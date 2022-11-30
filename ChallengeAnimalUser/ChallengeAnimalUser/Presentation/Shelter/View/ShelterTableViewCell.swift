@@ -56,7 +56,7 @@ final class ShelterTableViewCell: UITableViewCell {
 
 extension ShelterTableViewCell: ViewCoding {
     func setupView() {
-
+        self.backgroundColor = .white
     }
 
     func setupHierarchy() {
