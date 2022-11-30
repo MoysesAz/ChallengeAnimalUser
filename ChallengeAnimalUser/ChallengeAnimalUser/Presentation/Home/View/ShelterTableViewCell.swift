@@ -4,12 +4,6 @@
 //
 //  Created by Joan Wilson Oliveira on 29/11/22.
 //
-
-struct Shelter {
-    var name: String
-    var image: URL?
-}
-
 import UIKit
 import SDWebImage
 

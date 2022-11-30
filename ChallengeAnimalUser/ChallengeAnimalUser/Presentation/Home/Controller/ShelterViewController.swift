@@ -8,6 +8,10 @@
 import UIKit
 import CloudKit
 
+protocol ShelterViewControllerDelegate: AnyObject {
+
+}
+
 class ShelterViewController: UIViewController {
     var viewModel: ShelterViewModel
     var contentView: SheltersViewProtocol
@@ -98,3 +102,4 @@ extension ShelterViewController {
         return cell
     }
 }
+

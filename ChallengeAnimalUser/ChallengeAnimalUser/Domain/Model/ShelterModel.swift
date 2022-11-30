@@ -16,3 +16,10 @@ struct ShelterModel {
     let email: String
     let name: String
 }
+
+
+struct Shelter {
+    var name: String
+    var image: URL?
+}
+
