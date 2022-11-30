@@ -10,9 +10,18 @@ import UIKit
 
 protocol SheltersViewProtocol: UIView {
     var tableShelters: UITableView { get }
+    func loadData()
+    func configure()
 }
 
 class ShelterView: UIView {
+    lazy var indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.startAnimating()
+        return indicator
+    }()
+
     lazy var tableShelters: UITableView = {
         let tableShelters = UITableView()
         tableShelters.translatesAutoresizingMaskIntoConstraints = false
@@ -20,14 +29,46 @@ class ShelterView: UIView {
     }()
 
     override func willMove(toWindow newWindow: UIWindow?) {
+        setupView()
+    }
+}
+
+extension ShelterView: SheltersViewProtocol {
+    func loadData() {
+        indicator.isHidden = false
+        tableShelters.isHidden = true
+    }
+
+    func configure() {
+        indicator.isHidden = true
+        tableShelters.isHidden = false
+    }
+}
+
+extension ShelterView: ViewCoding {
+    func setupView() {
+        backgroundColor = .white
+        setupHierarchy()
+        setupConstraints()
+    }
+
+    func setupHierarchy() {
         addSubview(tableShelters)
-        setConstraint()
+        addSubview(indicator)
     }
 }
 
 extension ShelterView {
-    func setConstraint() {
+    func setupConstraints() {
+        indicatorConstraints()
         tableSheltersConstraints()
+    }
+
+    private func indicatorConstraints() {
+        NSLayoutConstraint.activate([
+            indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
+            indicator.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
 
     func tableSheltersConstraints() {
@@ -38,7 +79,4 @@ extension ShelterView {
             tableShelters.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-
 }
-
-extension ShelterView: SheltersViewProtocol {}
