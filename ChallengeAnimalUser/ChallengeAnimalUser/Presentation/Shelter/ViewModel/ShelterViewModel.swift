@@ -8,6 +8,4 @@
 import Foundation
 import CloudKit
 
-class ShelterViewModel {
-
-}
+class ShelterViewModel {}

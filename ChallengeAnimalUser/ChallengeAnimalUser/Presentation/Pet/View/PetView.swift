@@ -6,13 +6,13 @@
 //
 import UIKit
 
-protocol AnimalViewProtocol: UIView {
+protocol PetViewProtocol: UIView {
     var tableAnimal: UITableView { get }
     func configure()
     func loadData()
 
 }
-class AnimalView: UIView {
+class PetView: UIView {
     lazy var indicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +34,7 @@ class AnimalView: UIView {
     }
 }
 
-extension AnimalView {
+extension PetView {
     func setConstraint() {
         indicatorConstraints()
         tableAnimalConstraints()
@@ -57,7 +57,7 @@ extension AnimalView {
 
 }
 
-extension AnimalView: AnimalViewProtocol {
+extension PetView: PetViewProtocol {
     func loadData() {
         tableAnimal.isHidden = true
         indicator.isHidden = false

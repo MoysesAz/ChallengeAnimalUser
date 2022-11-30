@@ -12,6 +12,8 @@ protocol ICloudRepositoryProtocol {
     var records: [CKRecord] { get }
     var publishContainer: CKDatabase { get }
     func filterRecords(recordType: RecordsNamesEnum,
+                       dataBase: CKDatabase)
+    func filterRecords(recordType: RecordsNamesEnum,
                        dataBase: CKDatabase,
                        filter: NSPredicate)
 }
@@ -30,8 +32,14 @@ final class ICloudRepository: ICloudRepositoryProtocol {
     }
 
     public func filterRecords(recordType: RecordsNamesEnum,
-                       dataBase: CKDatabase,
-                       filter: NSPredicate = NSPredicate(value: true)) {
+                              dataBase: CKDatabase) {
+        let filter = NSPredicate(value: true)
+        self.filterRecords(recordType: recordType, dataBase: dataBase, filter: filter)
+    }
+
+    public func filterRecords(recordType: RecordsNamesEnum,
+                              dataBase: CKDatabase,
+                              filter: NSPredicate = NSPredicate(value: true)) {
 
         let query = CKQuery(recordType: recordType.rawValue, predicate: filter)
         // let results = try await dataBase.records(matching: query)
