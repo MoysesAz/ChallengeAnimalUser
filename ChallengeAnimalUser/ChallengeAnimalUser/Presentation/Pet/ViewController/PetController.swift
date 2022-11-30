@@ -6,22 +6,24 @@
 //
 
 import UIKit
+import CloudKit
 
-class ListOfAnimalsController: UIViewController {
-    var viewModel: ListOfAnimalsViewModel
-    var contentView: ListOfAnimalsViewProtocol
-    var mycloud = MyCloud()
-    var teste = ["Amor", "Gravidade", "Cafe", "Biscoito"]
+class PetController: UIViewController {
+    var viewModel: PetViewModel
+    var contentView: AnimalViewProtocol
+    var cloudRepository = ICloudRepository(
+        publishContainer: CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase)
+    var teste: [String] = []
 
-    init(contentView: some ListOfAnimalsViewProtocol = ListOfAnimalsView(),
-         viewModel: ListOfAnimalsViewModel) {
+    init(contentView: some AnimalViewProtocol = AnimalView(),
+         viewModel: PetViewModel) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     override func loadView() {
@@ -33,12 +35,17 @@ class ListOfAnimalsController: UIViewController {
         contentView.tableAnimal.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         contentView.tableAnimal.delegate = self
         contentView.tableAnimal.dataSource = self
-//        mycloud.filterRecords(recordType: .animal, dataBase: mycloud.publishContainer)
-        mycloud.cache.bind { value in
+        contentView.loadData()
+//        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer)
+        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
+        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
+
+        cloudRepository.cacheRecords.bind { value in
             DispatchQueue.main.async {
                 if value != nil {
                     guard let value else {return}
                     self.teste = value.map { $0.value(forKey: "nameAnimal") as! String}
+                    self.contentView.configure()
                     self.contentView.tableAnimal.reloadData()
                 }
             }
@@ -46,9 +53,9 @@ class ListOfAnimalsController: UIViewController {
     }
 }
 
-extension ListOfAnimalsController: UITableViewDelegate {}
+extension PetController: UITableViewDelegate {}
 
-extension ListOfAnimalsController: UITableViewDataSource {
+extension PetController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teste.count
     }

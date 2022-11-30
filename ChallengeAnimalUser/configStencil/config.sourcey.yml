@@ -1,9 +1,9 @@
 configurations:
     - sources:
-        - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/View
+        - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/Presentation
       templates:
         - /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/FramesStencils/autoViewConstraints.stencil
-      output: /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/View
+      output: /Users/Mirazev/Desktop/ChallengeAnimalUser/ChallengeAnimalUser/ChallengeAnimalUser/Presentation/View
 
 
 #    - sources:

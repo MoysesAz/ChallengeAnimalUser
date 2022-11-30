@@ -15,9 +15,8 @@ protocol ShelterViewControllerDelegate: AnyObject {
 class ShelterViewController: UIViewController {
     var viewModel: ShelterViewModel
     var contentView: SheltersViewProtocol
-    var mycloud = MyCloud()
-    var teste = ["São Lazaro", "Abrigo dos Gatos"]
-    var teste2: [Shelter] = []
+    var cloudRepository = ICloudRepository(publishContainer: CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase)
+
     var testeRecord: [CKRecord] = []
 
     init(contentView: some SheltersViewProtocol = ShelterView(),
@@ -43,12 +42,11 @@ class ShelterViewController: UIViewController {
         )
         contentView.tableShelters.delegate = self
         contentView.tableShelters.dataSource = self
-        mycloud.filterRecords(recordType: .shelter, dataBase: mycloud.publishContainer)
-        mycloud.cache.bind { value in
+        cloudRepository.filterRecords(recordType: .shelter, dataBase: cloudRepository.publishContainer)
+        cloudRepository.cacheRecords.bind { value in
             DispatchQueue.main.async {
                 if value != nil {
                     guard let value else {return}
-                    print(value)
                     self.testeRecord = value.map { $0 }
                     self.contentView.tableShelters.reloadData()
                 }
@@ -59,8 +57,10 @@ class ShelterViewController: UIViewController {
 
 extension ShelterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = ListOfAnimalsViewModel(animalID: indexPath.row)
-        let controller = ListOfAnimalsController(viewModel: viewModel)
+        let id = testeRecord[indexPath.row].recordID
+        let reference = CKRecord.Reference(recordID: id, action: .none)
+        let viewModel = PetViewModel(shelterId: reference)
+        let controller = PetController(viewModel: viewModel)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
