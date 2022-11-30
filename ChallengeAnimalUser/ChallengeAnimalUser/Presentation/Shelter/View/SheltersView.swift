@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-protocol AutoViewConstraints {}
+protocol SheltersViewProtocol: UIView {
+    var tableShelters: UITableView { get }
+}
 
 class ShelterView: UIView {
     lazy var tableShelters: UITableView = {
