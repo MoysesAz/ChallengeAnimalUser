@@ -14,23 +14,27 @@ protocol PetViewProtocol: UIView {
 }
 class PetView: UIView {
     lazy var indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
+        let indicator = UIActivityIndicatorView(style: .medium)
         indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.startAnimating()
+//        indicator.startAnimating()
         return indicator
     }()
 
     lazy var tableAnimal: UITableView = {
-        let tableAnimal = UITableView()
+        let tableAnimal = UITableView(frame: .zero, style: .grouped)
         tableAnimal.translatesAutoresizingMaskIntoConstraints = false
         return tableAnimal
     }()
 
-    override func willMove(toWindow newWindow: UIWindow?) {
-        backgroundColor = .white
+    override func layoutSubviews() {
+        super.layoutSubviews()
         addSubview(indicator)
         addSubview(tableAnimal)
         setConstraint()
+    }
+
+    override func willMove(toWindow newWindow: UIWindow?) {
+
     }
 }
 
@@ -59,13 +63,13 @@ extension PetView {
 
 extension PetView: PetViewProtocol {
     func loadData() {
-        tableAnimal.isHidden = true
+        tableAnimal.isHidden = false
         indicator.isHidden = false
     }
 
     func configure() {
         tableAnimal.isHidden = false
-        indicator.isHidden = true
+        indicator.isHidden = false
     }
 
 }

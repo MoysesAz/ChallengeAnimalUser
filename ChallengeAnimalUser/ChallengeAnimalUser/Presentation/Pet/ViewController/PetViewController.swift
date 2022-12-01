@@ -12,7 +12,7 @@ class PetViewController: UIViewController {
     var viewModel: PetViewModel
     var contentView: PetViewProtocol
     var cloudRepository: ICloudRepositoryProtocol
-    var teste: [String] = []
+    var testeRecord: [CKRecord] = []
 
     init(cloudRepository: some ICloudRepositoryProtocol,
          contentView: some PetViewProtocol = PetView(),
@@ -33,24 +33,28 @@ class PetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.tableAnimal.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+        title = viewModel.titleView
+        navigationItem.largeTitleDisplayMode = .automatic
+
+        contentView.tableAnimal.register(PetTableViewCell.self, forCellReuseIdentifier: PetTableViewCell.identifier)
         contentView.tableAnimal.delegate = self
         contentView.tableAnimal.dataSource = self
         contentView.loadData()
 //        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer)
-        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
-        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
+//        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
+//        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
 
-        cloudRepository.cacheRecords.bind { value in
-            DispatchQueue.main.async {
-                if value != nil {
-                    guard let value else {return}
-                    self.teste = value.map { $0.value(forKey: "nameAnimal") as! String}
-                    self.contentView.configure()
-                    self.contentView.tableAnimal.reloadData()
-                }
-            }
-        }
+//        cloudRepository.cacheRecords.bind { value in
+//            DispatchQueue.main.async {
+//                if value != nil {
+//                    guard let value else {return}
+//                    self.testeRecord = value.map { $0 }
+//                    self.contentView.configure()
+//                    self.contentView.tableAnimal.reloadData()
+//                }
+//            }
+//        }
     }
 }
 
@@ -58,12 +62,29 @@ extension PetViewController: UITableViewDelegate {}
 
 extension PetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teste.count
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 97
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = contentView.tableAnimal.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = teste[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: PetTableViewCell.identifier,
+            for: indexPath
+        ) as? PetTableViewCell else {
+            return UITableViewCell()
+        }
+
+//        let name = testeRecord[indexPath.row].value(forKey: "nameAnimal") as! String
+//        let image: CKAsset = testeRecord[indexPath.row].object(forKey: "image") as! CKAsset
+//
+//        let imageURL: URL? = URL(string: image.fileURL!.absoluteString)
+//        let cellInfo = Pet(name: name, image: imageURL, age: 10, isNeutered: true)
+
+//        cell.petInfo = cellInfo
+
         return cell
     }
 }
