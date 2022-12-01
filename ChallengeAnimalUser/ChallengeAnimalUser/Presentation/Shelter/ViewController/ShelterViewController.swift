@@ -41,17 +41,24 @@ class ShelterViewController: UIViewController {
         )
         contentView.tableShelters.delegate = self
         contentView.tableShelters.dataSource = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cloudRepository.filterRecords(recordType: .shelter, dataBase: cloudRepository.publishContainer)
+        contentView.loadData()
         cloudRepository.cacheRecords.bind { value in
             DispatchQueue.main.async {
                 if value != nil {
                     guard let value else {return}
                     self.testeRecord = value.map { $0 }
                     self.contentView.tableShelters.reloadData()
+                    self.contentView.configure()
                 }
             }
         }
     }
+
 }
 
 extension ShelterViewController: UITableViewDelegate {
