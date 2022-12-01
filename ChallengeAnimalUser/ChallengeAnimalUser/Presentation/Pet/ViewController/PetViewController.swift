@@ -54,7 +54,13 @@ class PetViewController: UIViewController {
     }
 }
 
-extension PetViewController: UITableViewDelegate {}
+extension PetViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = ImagesFormTableViewController(form: .rgData)
+        self.navigationController?.pushViewController(viewController, animated: true)
+
+    }
+}
 
 extension PetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
