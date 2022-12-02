@@ -16,6 +16,9 @@ class ShelterViewController: UIViewController {
     var cloudRepository: ICloudRepositoryProtocol
     var testeRecord: [CKRecord] = []
 
+    var isSearch: Bool = false
+    var searchController: UISearchController = UISearchController(searchResultsController: nil)
+
     init(cloudRepository: some ICloudRepositoryProtocol,
          contentView: some SheltersViewProtocol = ShelterView(),
          viewModel: ShelterViewModel = ShelterViewModel()) {
@@ -35,7 +38,12 @@ class ShelterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "teste"
+        title = "Abrigos próximos"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.searchController.searchBar.delegate = self
+        self.navigationItem.searchController = self.searchController
+
+
         contentView.tableShelters.register(
             ShelterTableViewCell.self,
             forCellReuseIdentifier: ShelterTableViewCell.identifier
@@ -60,6 +68,12 @@ class ShelterViewController: UIViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Abrigos"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    }
+
 }
 
 extension ShelterViewController: UITableViewDelegate {
@@ -78,7 +92,7 @@ extension ShelterViewController: UITableViewDelegate {
 extension ShelterViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 97
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,4 +125,8 @@ extension ShelterViewController {
 
         return cell
     }
+}
+
+extension ShelterViewController: UISearchBarDelegate {
+
 }

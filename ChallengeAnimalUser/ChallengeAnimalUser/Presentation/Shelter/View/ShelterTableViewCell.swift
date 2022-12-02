@@ -7,6 +7,8 @@
 import UIKit
 import SDWebImage
 
+
+
 final class ShelterTableViewCell: UITableViewCell {
 
     static var identifier = "ShelterTableViewCell"
@@ -19,9 +21,10 @@ final class ShelterTableViewCell: UITableViewCell {
 
     lazy var shelterImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
         imageView.image = UIImage(systemName: "person")
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         return imageView
@@ -30,7 +33,7 @@ final class ShelterTableViewCell: UITableViewCell {
     lazy var shelterLabel: UILabel = {
         let label = UILabel()
         label.text = "Abrigo Indefinido"
-        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -66,9 +69,9 @@ extension ShelterTableViewCell: ViewCoding {
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            shelterImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.bounds.width*0.08),
-            shelterImage.heightAnchor.constraint(equalToConstant: 60),
-            shelterImage.widthAnchor.constraint(equalToConstant: 60),
+            shelterImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.bounds.width*0.05),
+            shelterImage.heightAnchor.constraint(equalToConstant: 80),
+            shelterImage.widthAnchor.constraint(equalToConstant: 80),
             shelterImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
             shelterLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
