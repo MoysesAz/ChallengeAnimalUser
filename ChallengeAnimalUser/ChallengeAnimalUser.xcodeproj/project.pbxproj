@@ -33,6 +33,16 @@
 		95FBA37F2933B7CE0071F130 /* ShelterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA37E2933B7CE0071F130 /* ShelterViewModel.swift */; };
 		95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3832933D2DA0071F130 /* ShelterModel.swift */; };
 		95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */; };
+		FEAE05072938E22600F2A496 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE05062938E22600F2A496 /* TextFieldTableViewCell.swift */; };
+		FEAE05092938E2F800F2A496 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE05082938E2F800F2A496 /* ImageTableViewCell.swift */; };
+		FEAE050B2938E41200F2A496 /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE050A2938E41200F2A496 /* HeaderTableView.swift */; };
+		FEAE050E2938E50E00F2A496 /* FooterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE050D2938E50E00F2A496 /* FooterTableView.swift */; };
+		FEAE05102938E64100F2A496 /* FormTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE050F2938E64100F2A496 /* FormTableView.swift */; };
+		FEAE05142938E81D00F2A496 /* ModelFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE05132938E81D00F2A496 /* ModelFormTableViewController.swift */; };
+		FEAE05162938E86B00F2A496 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE05152938E86B00F2A496 /* FormModel.swift */; };
+		FEAE05182938E91700F2A496 /* ImagesFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE05172938E91700F2A496 /* ImagesFormTableViewController.swift */; };
+		FEAE051B2938ED1000F2A496 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE051A2938ED1000F2A496 /* FormViewModel.swift */; };
+		FEAE051D293A192500F2A496 /* TextFieldFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE051C293A192500F2A496 /* TextFieldFormTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +86,16 @@
 		95FBA37E2933B7CE0071F130 /* ShelterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterViewModel.swift; sourceTree = "<group>"; };
 		95FBA3832933D2DA0071F130 /* ShelterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterModel.swift; sourceTree = "<group>"; };
 		95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsNamesEnum.swift; sourceTree = "<group>"; };
+		FEAE05062938E22600F2A496 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		FEAE05082938E2F800F2A496 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		FEAE050A2938E41200F2A496 /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
+		FEAE050D2938E50E00F2A496 /* FooterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableView.swift; sourceTree = "<group>"; };
+		FEAE050F2938E64100F2A496 /* FormTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableView.swift; sourceTree = "<group>"; };
+		FEAE05132938E81D00F2A496 /* ModelFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFormTableViewController.swift; sourceTree = "<group>"; };
+		FEAE05152938E86B00F2A496 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
+		FEAE05172938E91700F2A496 /* ImagesFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesFormTableViewController.swift; sourceTree = "<group>"; };
+		FEAE051A2938ED1000F2A496 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		FEAE051C293A192500F2A496 /* TextFieldFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				8505B39D29362EE20032BAC9 /* LaunchScreen */,
+				FEAE05042938E1B500F2A496 /* Form */,
 				8505B39829362E320032BAC9 /* Shelter */,
 				8505B3A4293648320032BAC9 /* Pet */,
 			);
@@ -237,6 +258,7 @@
 			children = (
 				95FBA3832933D2DA0071F130 /* ShelterModel.swift */,
 				95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */,
+				FEAE05152938E86B00F2A496 /* FormModel.swift */,
 				853962A42938E7A2004DEA9D /* Pet.swift */,
 			);
 			path = Model;
@@ -300,6 +322,54 @@
 				95484BB5293126BF0021B21B /* ShelterViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FEAE05042938E1B500F2A496 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE050C2938E46500F2A496 /* View */,
+				FEAE05112938E6BB00F2A496 /* ViewController */,
+				FEAE05192938ECBB00F2A496 /* ViewModel */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		FEAE05052938E1F400F2A496 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE05082938E2F800F2A496 /* ImageTableViewCell.swift */,
+				FEAE05062938E22600F2A496 /* TextFieldTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FEAE050C2938E46500F2A496 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE05052938E1F400F2A496 /* Cell */,
+				FEAE050A2938E41200F2A496 /* HeaderTableView.swift */,
+				FEAE050D2938E50E00F2A496 /* FooterTableView.swift */,
+				FEAE050F2938E64100F2A496 /* FormTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEAE05112938E6BB00F2A496 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE05132938E81D00F2A496 /* ModelFormTableViewController.swift */,
+				FEAE05172938E91700F2A496 /* ImagesFormTableViewController.swift */,
+				FEAE051C293A192500F2A496 /* TextFieldFormTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FEAE05192938ECBB00F2A496 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE051A2938ED1000F2A496 /* FormViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,22 +501,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEAE05072938E22600F2A496 /* TextFieldTableViewCell.swift in Sources */,
 				95FBA37F2933B7CE0071F130 /* ShelterViewModel.swift in Sources */,
+				FEAE05102938E64100F2A496 /* FormTableView.swift in Sources */,
+				FEAE051D293A192500F2A496 /* TextFieldFormTableViewController.swift in Sources */,
 				95E5C052293575AC006880A4 /* PetViewModel.swift in Sources */,
+				FEAE05092938E2F800F2A496 /* ImageTableViewCell.swift in Sources */,
 				853962A52938E7A2004DEA9D /* Pet.swift in Sources */,
 				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
 				95484BB6293126BF0021B21B /* ShelterViewController.swift in Sources */,
+				FEAE05182938E91700F2A496 /* ImagesFormTableViewController.swift in Sources */,
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
 				853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */,
 				853962A32938E620004DEA9D /* UIView+.swift in Sources */,
 				955813B3293A300D00256D43 /* StringProtocol+.swift in Sources */,
 				95FBA37D29339D0C0071F130 /* SheltersView.swift in Sources */,
+				FEAE051B2938ED1000F2A496 /* FormViewModel.swift in Sources */,
+				FEAE05142938E81D00F2A496 /* ModelFormTableViewController.swift in Sources */,
 				852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */,
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
 				8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */,
 				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
+				FEAE05162938E86B00F2A496 /* FormModel.swift in Sources */,
 				95E5C0492934DA4E006880A4 /* ICloudRepository.swift in Sources */,
 				95E5C05029357555006880A4 /* PetViewController.swift in Sources */,
+				FEAE050E2938E50E00F2A496 /* FooterTableView.swift in Sources */,
+				FEAE050B2938E41200F2A496 /* HeaderTableView.swift in Sources */,
 				95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */,
 				852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */,
 				95E5C04B29356F0B006880A4 /* PetView.swift in Sources */,
@@ -610,6 +690,7 @@
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChallengeAnimalUser/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ChallengeAnimalUser wants to use your Camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -644,6 +725,7 @@
 				DEVELOPMENT_TEAM = 35GM6XG62S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChallengeAnimalUser/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ChallengeAnimalUser wants to use your Camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
