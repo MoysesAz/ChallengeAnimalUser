@@ -16,14 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
         let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
         let cloudRepository = ICloudRepository(publishContainer: repository)
-        let controller: UIViewController = PetViewController(cloudRepository: cloudRepository, viewModel: PetViewModel(shelterId: nil, titleView: "Teste"))
+        let controller: UIViewController = ShelterViewController(cloudRepository: cloudRepository)
         let navMainView = UINavigationController(rootViewController: controller)
-        window.rootViewController = navMainView
-        window.makeKeyAndVisible()
-        self.window = window
+        window?.rootViewController = navMainView
+        window?.makeKeyAndVisible()
 
     }
 

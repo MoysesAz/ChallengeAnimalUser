@@ -6,43 +6,56 @@
 //
 import UIKit
 
-protocol PetViewProtocol: UIView {
+protocol PetViewProtocol {
     var tableAnimal: UITableView { get }
     func configure()
     func loadData()
-
 }
-class PetView: UIView {
+
+final class PetView: UIView {
     lazy var indicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.translatesAutoresizingMaskIntoConstraints = false
-//        indicator.startAnimating()
+        indicator.startAnimating()
         return indicator
     }()
 
     lazy var tableAnimal: UITableView = {
-        let tableAnimal = UITableView(frame: .zero, style: .grouped)
+        let tableAnimal = UITableView(frame: .zero, style: .plain)
+        tableAnimal.register(PetTableViewCell.self, forCellReuseIdentifier: PetTableViewCell.identifier)
         tableAnimal.translatesAutoresizingMaskIntoConstraints = false
         return tableAnimal
     }()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        addSubview(indicator)
-        addSubview(tableAnimal)
-        setConstraint()
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        buildLayout()
+        configure()
     }
 
-    override func willMove(toWindow newWindow: UIWindow?) {
-
+    required init?(coder: NSCoder) {
+        return nil
     }
 }
 
-extension PetView {
-    func setConstraint() {
+extension PetView: ViewCoding {
+    func setupView() {
+        //Quebrando SOLID
+    }
+
+    func setupHierarchy() {
+        self.add(subviews: tableAnimal, indicator)
+    }
+
+    func setupConstraints() {
         indicatorConstraints()
         tableAnimalConstraints()
     }
+
+}
+
+// MARK: - Constraints
+extension PetView {
     private func indicatorConstraints() {
         NSLayoutConstraint.activate([
             indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -52,24 +65,20 @@ extension PetView {
 
     func tableAnimalConstraints() {
         NSLayoutConstraint.activate([
-            tableAnimal.heightAnchor.constraint(equalTo: heightAnchor),
-            tableAnimal.widthAnchor.constraint(equalTo: widthAnchor),
-            tableAnimal.centerYAnchor.constraint(equalTo: centerYAnchor),
-            tableAnimal.centerXAnchor.constraint(equalTo: centerXAnchor)
+            tableAnimal.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableAnimal.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableAnimal.topAnchor.constraint(equalTo: self.topAnchor),
+            tableAnimal.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
 }
 
 extension PetView: PetViewProtocol {
     func loadData() {
-        tableAnimal.isHidden = false
         indicator.isHidden = false
     }
 
     func configure() {
-        tableAnimal.isHidden = false
-        indicator.isHidden = false
+        indicator.isHidden = true
     }
-
 }
