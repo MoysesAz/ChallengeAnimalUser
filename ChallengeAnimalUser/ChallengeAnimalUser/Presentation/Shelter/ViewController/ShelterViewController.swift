@@ -43,7 +43,6 @@ class ShelterViewController: UIViewController {
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = self.searchController
 
-
         contentView.tableShelters.register(
             ShelterTableViewCell.self,
             forCellReuseIdentifier: ShelterTableViewCell.identifier
@@ -130,3 +129,5 @@ extension ShelterViewController {
 extension ShelterViewController: UISearchBarDelegate {
 
 }
+
+
