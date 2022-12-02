@@ -40,6 +40,8 @@ final class PetViewController: UIViewController {
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = self.searchController
 
+        self.navigationItem.backButtonTitle = "Abrigos"
+
         createFilterNavigationItem()
 
         contentView.tableAnimal.delegate = self
@@ -60,6 +62,8 @@ final class PetViewController: UIViewController {
             }
         }
     }
+
+    
 
     func createFilterNavigationItem() {
         let button = UIButton(type: .custom)
