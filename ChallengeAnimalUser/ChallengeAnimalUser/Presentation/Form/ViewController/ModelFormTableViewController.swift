@@ -36,6 +36,12 @@ class ModelFormTableViewController: UITableViewController {
         tableView.dataSource = self
     }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = HeaderFormTableView()
+        header.configure(form: self.form!)
+        return header
+    }
+
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = FooterFormTableView()
         footer.delegate = self
@@ -43,21 +49,38 @@ class ModelFormTableViewController: UITableViewController {
     }
 
     @objc func cancelForm(sender: UIButton!) {
-        FormModel.instance.resetAll()
+        viewModel.cleanData()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
 extension ModelFormTableViewController: PushButtonFormDelegate {
+
     func goToNextView() {
-        if (self.form == .rgData) {
-            let viewController = ImagesFormTableViewController(form: .residenceProof)
-            self.navigationController?.pushViewController(viewController, animated: true)
-        } else {
-            if (form == .residenceProof) {
-                let viewController = ImagesFormTableViewController(form: .petLocal)
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
+        switch self.form {
+
+        case .rgData:
+            pushImageViewController(form: .residenceProof)
+        case .residenceProof:
+            pushImageViewController(form: .petLocal)
+        case .petLocal:
+            pushTextFieldViewController(form: .userContact)
+        case .userContact:
+            pushTextFieldViewController(form: .textToONG)
+        case .textToONG:
+            self.navigationController?.popToRootViewController(animated: false)
+        case .none:
+            fatalError("form is none")
         }
+    }
+
+    private func pushImageViewController(form: Form) {
+        let viewController = ImagesFormTableViewController(form: form)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    private func pushTextFieldViewController(form: Form) {
+        let viewController = TextFieldFormTableViewController(form: form)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

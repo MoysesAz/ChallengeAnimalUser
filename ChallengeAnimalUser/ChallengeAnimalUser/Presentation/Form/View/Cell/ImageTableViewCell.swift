@@ -18,7 +18,7 @@ class ImageFormTableViewCell: UITableViewCell {
         image.image = UIImage(named: "Placeholder")
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-        image.layer.cornerRadius = 15
+        image.layer.cornerRadius = 5
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -34,15 +34,14 @@ class ImageFormTableViewCell: UITableViewCell {
 
     lazy var heightAnchorHorizontalFalse = {
         image.heightAnchor.constraint(
-            equalTo: contentView.widthAnchor,
-            multiplier: 0.9
+            equalTo: contentView.widthAnchor
         )
     }()
 
     lazy var widthAnchorHorizontalFalse = {
         image.widthAnchor.constraint(
             equalTo: contentView.widthAnchor,
-            multiplier: 0.65
+            multiplier: 0.75
         )
     }()
 
@@ -59,11 +58,15 @@ class ImageFormTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(isHorizontal: Bool = false) {
+    func configure(
+        image: UIImage?,
+        isHorizontal: Bool
+    ) {
         self.isHorizontal = isHorizontal
+        self.image.image = image ?? UIImage(named: "Placeholder")
         imageConstraints()
-    }
 
+    }
 }
 
 extension ImageFormTableViewCell: ViewCoding {
@@ -99,8 +102,7 @@ extension ImageFormTableViewCell: ViewCoding {
                     multiplier: 0.65
                 ),
                 image.widthAnchor.constraint(
-                    equalTo: contentView.widthAnchor,
-                    multiplier: 0.9
+                    equalTo: contentView.widthAnchor
                 )
             ])
         } else {
@@ -110,7 +112,7 @@ extension ImageFormTableViewCell: ViewCoding {
 
                 image.topAnchor.constraint(
                     equalTo: contentView.topAnchor,
-                    constant: 20
+                    constant: 10
                 ),
                 image.bottomAnchor.constraint(
                     equalTo: contentView.bottomAnchor
@@ -127,7 +129,7 @@ extension ImageFormTableViewCell: ViewCoding {
             button.widthAnchor.constraint(equalToConstant: 170),
             button.bottomAnchor.constraint(
                 equalTo: image.bottomAnchor,
-                constant: -10
+                constant: -20
             ),
             button.trailingAnchor.constraint(
                 equalTo: image.trailingAnchor,

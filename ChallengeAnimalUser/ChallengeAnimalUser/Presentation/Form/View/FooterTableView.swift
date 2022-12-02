@@ -47,11 +47,10 @@ extension FooterFormTableView: ViewCoding {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(
                 equalTo: self.topAnchor,
-                constant: 40
+                constant: 30
             ),
             button.widthAnchor.constraint(
-                equalTo: self.widthAnchor,
-                multiplier: 0.9
+                equalTo: self.widthAnchor
             ),
             button.heightAnchor.constraint(
                 equalToConstant: 50

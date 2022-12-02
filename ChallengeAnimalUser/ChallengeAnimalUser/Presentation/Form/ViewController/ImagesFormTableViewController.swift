@@ -22,21 +22,20 @@ class ImagesFormTableViewController: ModelFormTableViewController {
         }
         cell.button.tag = indexPath.row
         cell.delegate = self
-        if (form == .rgData) {
-            cell.configure(isHorizontal: true)
-        }
-        return cell
-    }
+        cell.configure(
+            image: viewModel.getImageFromModel(
+                form: self.form!,
+                buttonTag: cell.button.tag
+            ),
+            isHorizontal: form == .rgData ? true : false
+        )
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = HeaderFormTableView()
-        header.configure(form: self.form!)
-        return header
+        return cell
     }
 
 }
 
-extension ImagesFormTableViewController: ImageCellDelegate{
+extension ImagesFormTableViewController: ImageCellDelegate {
 
     func chooseImageAction(buttonTag: Int) {
 
@@ -111,6 +110,11 @@ extension ImagesFormTableViewController: ImageCellDelegate{
             fatalError("Could not convert TableViewCell in IMageTableViewCell")
         }
         cell.image.image = image
+        viewModel.saveImage(
+            image: image,
+            tableViewTag: tableView.tag,
+            form: form!
+        )
         tableView.reloadData()
     }
 }
@@ -119,7 +123,7 @@ extension ImagesFormTableViewController: UIImagePickerControllerDelegate, UINavi
 
     func imagePickerController(
         _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Could not load image from CameraPicker")

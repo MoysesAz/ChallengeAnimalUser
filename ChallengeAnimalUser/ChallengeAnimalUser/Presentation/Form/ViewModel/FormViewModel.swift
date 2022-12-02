@@ -14,15 +14,48 @@ class FormViewModel {
     func setTitle(form: Form) -> String {
         switch form {
         case .rgData:
-            return "Título do RG"
+            return "Parte 1 de 5"
         case .residenceProof:
-            return "Título dda residência"
+            return "Parte 2 de 5"
         case .petLocal:
-            return "Tíyulo local do pet"
+            return "Parte 3 de 5"
         case .userContact:
-            return "título dados do usuário"
+            return "Parte 4 de 5"
         case .textToONG:
-            return "título do texto da ONG"
+            return "Parte 5 de 5"
+        }
+    }
+
+    func cleanData() {
+        FormModel.instance.resetAll()
+    }
+
+    func getImageFromModel(form: Form, buttonTag: Int) -> UIImage? {
+        switch form {
+        case .rgData:
+            switch buttonTag {
+            case 0:
+                return FormModel.instance.frontRG
+            case 1:
+                return FormModel.instance.backRG
+            default:
+                fatalError("TableViewTag does not match any part of RGData")
+            }
+
+        case .residenceProof:
+            if buttonTag == 0 {
+                return FormModel.instance.residenceProof
+            } else {
+                fatalError("TableViewTag does not match any part of residence proof")
+            }
+        case .petLocal:
+            if buttonTag == 0 {
+                return FormModel.instance.petSpace
+            } else {
+                fatalError("TableViewTag does not match any part of pet space")
+            }
+        default:
+            fatalError("Form has no correspondent with image requisition")
         }
     }
 
@@ -46,10 +79,8 @@ class FormViewModel {
             savePetLocalData(
                 image: image, tableViewTag: tableViewTag
             )
-        case .userContact:
-            fatalError("User Contact Data required by ImagesFormTableViewController to save in model")
-        case .textToONG:
-            fatalError("Text to ONG required by ImagesFormTableViewController to save in model")
+        default:
+            fatalError("Form has no correspondent with image requisition")
         }
     }
 
@@ -71,7 +102,7 @@ class FormViewModel {
         image: UIImage,
         tableViewTag: Int
     ) {
-        if (tableViewTag == 0){
+        if tableViewTag == 0 {
             FormModel.instance.residenceProof = image
         } else {
             fatalError("TableViewTag != 0")
@@ -79,7 +110,7 @@ class FormViewModel {
     }
 
     private func savePetLocalData(image: UIImage, tableViewTag: Int) {
-        if (tableViewTag == 0){
+        if tableViewTag == 0 {
             FormModel.instance.petSpace = image
         } else {
             fatalError("TableViewTag != 0")

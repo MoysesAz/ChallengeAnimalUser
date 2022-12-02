@@ -22,7 +22,14 @@ class FormTableView: UITableView {
 
 extension FormTableView: ViewCoding {
     func setupView() {
-        self.register(ImageFormTableViewCell.self, forCellReuseIdentifier: "imageCell")
+        self.register(
+            ImageFormTableViewCell.self,
+            forCellReuseIdentifier: "imageCell"
+        )
+        self.register(
+            TextFieldFormTableViewCell.self,
+            forCellReuseIdentifier: "textFieldCell"
+        )
         self.backgroundColor = .systemBackground
         self.separatorStyle = .none
     }
@@ -30,6 +37,5 @@ extension FormTableView: ViewCoding {
     func setupHierarchy() {}
 
     func setupConstraints() {}
-
 
 }
