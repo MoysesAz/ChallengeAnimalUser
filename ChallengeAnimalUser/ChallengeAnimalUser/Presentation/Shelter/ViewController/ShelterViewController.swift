@@ -14,7 +14,8 @@ class ShelterViewController: UIViewController {
     var viewModel: ShelterViewModel
     var contentView: SheltersViewProtocol
     var cloudRepository: ICloudRepositoryProtocol
-    var testeRecord: [CKRecord] = []
+    var records: [CKRecord] = []
+    var searchRecord: [CKRecord] = []
 
     var isSearch: Bool = false
     var searchController: UISearchController = UISearchController(searchResultsController: nil)
@@ -59,7 +60,8 @@ class ShelterViewController: UIViewController {
             DispatchQueue.main.async {
                 if value != nil {
                     guard let value else {return}
-                    self.testeRecord = value.map { $0 }
+                    self.records = value.map { $0 }
+                    self.searchRecord = self.records
                     self.contentView.tableShelters.reloadData()
                     self.contentView.configure()
                 }
@@ -77,8 +79,8 @@ class ShelterViewController: UIViewController {
 
 extension ShelterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = testeRecord[indexPath.row].recordID
-        let title = testeRecord[indexPath.row].value(forKey: "shelterName") as! String
+        let id = records[indexPath.row].recordID
+        let title = records[indexPath.row].value(forKey: "shelterName") as! String
         let reference = CKRecord.Reference(recordID: id, action: .none)
         let viewModel = PetViewModel(shelterId: reference, titleView: title)
         let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
@@ -95,7 +97,7 @@ extension ShelterViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testeRecord.count
+        return searchRecord.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,20 +116,28 @@ extension ShelterViewController {
             return UITableViewCell()
         }
 
-        let name = testeRecord[indexPath.row].value(forKey: "shelterName") as! String
-        let image: CKAsset = testeRecord[indexPath.row].object(forKey: "logo") as! CKAsset
-
+        let name = searchRecord[indexPath.row].value(forKey: "shelterName") as! String
+        let image: CKAsset = searchRecord[indexPath.row].object(forKey: "logo") as! CKAsset
         let imageURL: URL? = URL(string: image.fileURL!.absoluteString)
         let cellInfo = Shelter(name: name, image: imageURL)
-
         cell.shelterInfo = cellInfo
-
         return cell
     }
 }
 
 extension ShelterViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            guard let value =  cloudRepository.cacheRecords.value else {return}
+            searchRecord = value
+        } else {
+            searchRecord = records.filter({
+                guard let value = $0.value(forKey: "shelterName") else { return false }
+                guard let name = value as? String else { return false }
+                return name.lowercased().stripingDiacritics.contains(searchText.lowercased().stripingDiacritics)
+            })
+        }
+        contentView.tableShelters.reloadData()
 
+    }
 }
-
-

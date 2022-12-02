@@ -23,6 +23,7 @@
 		95484BBB293126BF0021B21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBA293126BF0021B21B /* Assets.xcassets */; };
 		95484BBE293126BF0021B21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBC293126BF0021B21B /* LaunchScreen.storyboard */; };
 		95484BFC2931A8BB0021B21B /* ChallengeAnimalUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */; };
+		955813B3293A300D00256D43 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955813B2293A300D00256D43 /* StringProtocol+.swift */; };
 		95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C0462934351F006880A4 /* ObservableObject.swift */; };
 		95E5C0492934DA4E006880A4 /* ICloudRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C0482934DA4E006880A4 /* ICloudRepository.swift */; };
 		95E5C04B29356F0B006880A4 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C04A29356F0B006880A4 /* PetView.swift */; };
@@ -65,6 +66,7 @@
 		95484BE129312D950021B21B /* ChallengeAnimalUser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChallengeAnimalUser.entitlements; sourceTree = "<group>"; };
 		95484BF92931A8BB0021B21B /* ChallengeAnimalUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAnimalUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserTests.swift; sourceTree = "<group>"; };
+		955813B2293A300D00256D43 /* StringProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
 		95E5C0462934351F006880A4 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		95E5C0482934DA4E006880A4 /* ICloudRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudRepository.swift; sourceTree = "<group>"; };
 		95E5C04A29356F0B006880A4 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				852A026029366D8200C4B7D0 /* CKAsset+.swift */,
 				852A02622936BEBD00C4B7D0 /* UIImageView+.swift */,
 				853962A22938E620004DEA9D /* UIView+.swift */,
+				955813B2293A300D00256D43 /* StringProtocol+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
 				853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */,
 				853962A32938E620004DEA9D /* UIView+.swift in Sources */,
+				955813B3293A300D00256D43 /* StringProtocol+.swift in Sources */,
 				95FBA37D29339D0C0071F130 /* SheltersView.swift in Sources */,
 				852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */,
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
