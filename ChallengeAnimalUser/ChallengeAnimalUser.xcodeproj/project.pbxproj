@@ -16,6 +16,9 @@
 		853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A02938E07E004DEA9D /* PetTableViewCell.swift */; };
 		853962A32938E620004DEA9D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A22938E620004DEA9D /* UIView+.swift */; };
 		853962A52938E7A2004DEA9D /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A42938E7A2004DEA9D /* Pet.swift */; };
+		853962B3293A2311004DEA9D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962B2293A2311004DEA9D /* OnboardingViewController.swift */; };
+		853962B5293A27FB004DEA9D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962B4293A27FB004DEA9D /* OnboardingView.swift */; };
+		853962B7293A2807004DEA9D /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962B6293A2807004DEA9D /* OnboardingViewModel.swift */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
@@ -52,6 +55,9 @@
 		853962A02938E07E004DEA9D /* PetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
 		853962A22938E620004DEA9D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		853962A42938E7A2004DEA9D /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		853962B2293A2311004DEA9D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		853962B4293A27FB004DEA9D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		853962B6293A2807004DEA9D /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8505B39D29362EE20032BAC9 /* LaunchScreen */,
+				853962AE293A1FD9004DEA9D /* Onboarding */,
 				8505B39829362E320032BAC9 /* Shelter */,
 				8505B3A4293648320032BAC9 /* Pet */,
 			);
@@ -208,6 +215,40 @@
 			isa = PBXGroup;
 			children = (
 				95E5C04F29357555006880A4 /* PetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		853962AE293A1FD9004DEA9D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				853962AF293A224C004DEA9D /* View */,
+				853962B1293A2258004DEA9D /* ViewController */,
+				853962B0293A2252004DEA9D /* ViewModel */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		853962AF293A224C004DEA9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				853962B4293A27FB004DEA9D /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		853962B0293A2252004DEA9D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				853962B6293A2807004DEA9D /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		853962B1293A2258004DEA9D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				853962B2293A2311004DEA9D /* OnboardingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -434,7 +475,9 @@
 				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
 				95484BB6293126BF0021B21B /* ShelterViewController.swift in Sources */,
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
+				853962B5293A27FB004DEA9D /* OnboardingView.swift in Sources */,
 				853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */,
+				853962B3293A2311004DEA9D /* OnboardingViewController.swift in Sources */,
 				853962A32938E620004DEA9D /* UIView+.swift in Sources */,
 				95FBA37D29339D0C0071F130 /* SheltersView.swift in Sources */,
 				852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */,
@@ -445,6 +488,7 @@
 				95E5C05029357555006880A4 /* PetViewController.swift in Sources */,
 				95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */,
 				852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */,
+				853962B7293A2807004DEA9D /* OnboardingViewModel.swift in Sources */,
 				95E5C04B29356F0B006880A4 /* PetView.swift in Sources */,
 				8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */,
 			);
