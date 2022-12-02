@@ -35,6 +35,7 @@ class ShelterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "teste"
         contentView.tableShelters.register(
             ShelterTableViewCell.self,
             forCellReuseIdentifier: ShelterTableViewCell.identifier
@@ -64,8 +65,9 @@ class ShelterViewController: UIViewController {
 extension ShelterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = testeRecord[indexPath.row].recordID
+        let title = testeRecord[indexPath.row].value(forKey: "shelterName") as! String
         let reference = CKRecord.Reference(recordID: id, action: .none)
-        let viewModel = PetViewModel(shelterId: reference)
+        let viewModel = PetViewModel(shelterId: reference, titleView: title)
         let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
         let cloudRepository = ICloudRepository(publishContainer: repository)
         let controller = PetViewController(cloudRepository: cloudRepository, viewModel: viewModel)

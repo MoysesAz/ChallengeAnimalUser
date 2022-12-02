@@ -10,9 +10,11 @@ import CloudKit
 
 class PetViewModel {
     let shelterId: CKRecord.Reference
+    let titleView: String
 
-    init(shelterId: CKRecord.Reference) {
-       self.shelterId = shelterId
-   }
+    init(shelterId: CKRecord.Reference, titleView: String) {
+        self.shelterId = shelterId
+        self.titleView = titleView
+    }
 
 }
