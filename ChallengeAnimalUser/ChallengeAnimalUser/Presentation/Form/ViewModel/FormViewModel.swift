@@ -14,15 +14,15 @@ class FormViewModel {
     func setTitle(form: Form) -> String {
         switch form {
         case .rgData:
-            return "Parte 1 de 5"
+            return "RG ou CNH"
         case .residenceProof:
-            return "Parte 2 de 5"
+            return "Comprovante de Residência"
         case .petLocal:
-            return "Parte 3 de 5"
+            return "Moradia do animal"
         case .userContact:
-            return "Parte 4 de 5"
+            return "Dados de Contato"
         case .textToONG:
-            return "Parte 5 de 5"
+            return "Mensagem para abrigo"
         }
     }
 
