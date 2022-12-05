@@ -44,13 +44,41 @@ class ModelFormTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = FooterFormTableView()
+        footer.configure(form: form!)
         footer.delegate = self
         return footer
     }
 
     @objc func cancelForm(sender: UIButton!) {
-        viewModel.cleanData()
-        self.navigationController?.popToRootViewController(animated: true)
+        let alertVC = UIAlertController(
+            title: "Cancelar Envio de Formulário",
+            message: "Você tem certeza que deseja cancelar o envio do formulário?",
+            preferredStyle: .alert
+        )
+
+        let cancelAction = UIAlertAction(
+            title: "Não",
+            style: .cancel
+        )
+
+        let deleteAction = buildDeleteFormAction()
+
+        alertVC.addAction(deleteAction)
+        alertVC.addAction(cancelAction)
+
+        self.present(alertVC, animated: true)
+    }
+
+    func buildDeleteFormAction() -> UIAlertAction {
+        let deleteAction = UIAlertAction(
+            title: "Sim",
+            style: .destructive
+        ) { [weak self] (_) in
+            guard let self = self else {return}
+            self.viewModel.cleanData()
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        return deleteAction
     }
 }
 

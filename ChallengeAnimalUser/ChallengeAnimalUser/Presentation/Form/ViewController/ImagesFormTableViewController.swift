@@ -49,6 +49,7 @@ extension ImagesFormTableViewController: ImageCellDelegate {
 
         let cameraAction: UIAlertAction = buildCameraAction()
         let libraryAction: UIAlertAction = buildLibraryAction()
+        let deleteAction = buildDeleteAction()
         let cancelAction = UIAlertAction(
             title: "Cancelar",
             style: .cancel
@@ -56,6 +57,7 @@ extension ImagesFormTableViewController: ImageCellDelegate {
 
         alertVC.addAction(cameraAction)
         alertVC.addAction(libraryAction)
+        alertVC.addAction(deleteAction)
         alertVC.addAction(cancelAction)
 
         self.present(alertVC, animated: true)
@@ -97,6 +99,20 @@ extension ImagesFormTableViewController: ImageCellDelegate {
         return libraryAction
     }
 
+    func buildDeleteAction() -> UIAlertAction {
+        let deleteAction = UIAlertAction(
+            title: "Excluir",
+            style: .destructive
+        ) { [weak self] (_) in
+            guard let self = self else {return}
+            self.changeImage(
+                UIImage(named: "Placeholder")!,
+                buttonText: "Adicionar Imagem"
+            )
+        }
+        return deleteAction
+    }
+
     func libraryImagePickerConfiguration() -> PHPickerConfiguration {
         var pickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
         pickerConfiguration.selectionLimit = 1
@@ -104,12 +120,13 @@ extension ImagesFormTableViewController: ImageCellDelegate {
         return pickerConfiguration
     }
 
-    func changeImage(_ image: UIImage) {
+    func changeImage(_ image: UIImage, buttonText: String) {
         let indexPath = IndexPath(row: tableView.tag, section: 0)
         guard let cell = tableView.cellForRow(at: indexPath) as? ImageFormTableViewCell else {
             fatalError("Could not convert TableViewCell in IMageTableViewCell")
         }
         cell.image.image = image
+        cell.button.setTitle(buttonText, for: .normal)
         viewModel.saveImage(
             image: image,
             tableViewTag: tableView.tag,
@@ -128,7 +145,10 @@ extension ImagesFormTableViewController: UIImagePickerControllerDelegate, UINavi
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Could not load image from CameraPicker")
         }
-        changeImage(image)
+        self.changeImage(
+         image,
+         buttonText: "Editar Imagem"
+        )
         self.dismiss(animated: true)
     }
 }
@@ -140,7 +160,10 @@ extension ImagesFormTableViewController: PHPickerViewControllerDelegate {
                result.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
                guard let image = reading as? UIImage, error == nil else { return }
                DispatchQueue.main.async {
-                   self.changeImage(image)
+                   self.changeImage(
+                    image,
+                    buttonText: "Editar Imagem"
+                   )
                }
           }
        }

@@ -40,9 +40,11 @@ class TextFieldFormTableViewCell: UITableViewCell {
             switch indexPath.row {
             case 0:
                 textField.keyboardType = .emailAddress
+                textField.textContentType = .emailAddress
                 textField.placeholder = "e-mail"
             case 1:
                 textField.keyboardType = .numberPad
+                textField.textContentType = .telephoneNumber
                 textField.placeholder = "telefone"
             default:
                 fatalError("indexPath does no match with form .userContact")

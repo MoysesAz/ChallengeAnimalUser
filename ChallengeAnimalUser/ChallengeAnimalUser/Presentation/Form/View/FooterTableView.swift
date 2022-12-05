@@ -28,6 +28,12 @@ class FooterFormTableView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func configure(form: Form) {
+        if form == .textToONG {
+            button.setTitle("Concluir formulário", for: .normal)
+        }
+    }
 }
 
 extension FooterFormTableView: ViewCoding {
