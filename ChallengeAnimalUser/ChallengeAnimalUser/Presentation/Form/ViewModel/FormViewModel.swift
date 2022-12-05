@@ -16,7 +16,7 @@ class FormViewModel {
         case .rgData:
             return "RG ou CNH"
         case .residenceProof:
-            return "Comprovante de Residência"
+            return "Comp. de Residência"
         case .petLocal:
             return "Moradia do animal"
         case .userContact:
