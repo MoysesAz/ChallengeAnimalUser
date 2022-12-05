@@ -122,6 +122,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D0E3CBF293E382400EF09D5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE05052938E1F400F2A496 /* Cell */,
+				FEAE050A2938E41200F2A496 /* HeaderTableView.swift */,
+				FEAE050D2938E50E00F2A496 /* FooterTableView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8505B39529362E180032BAC9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				FEAE050C2938E46500F2A496 /* View */,
+				FEAE050F2938E64100F2A496 /* FormTableView.swift */,
 				FEAE05112938E6BB00F2A496 /* ViewController */,
 				FEAE05192938ECBB00F2A496 /* ViewModel */,
 			);
@@ -384,10 +395,7 @@
 		FEAE050C2938E46500F2A496 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FEAE05052938E1F400F2A496 /* Cell */,
-				FEAE050A2938E41200F2A496 /* HeaderTableView.swift */,
-				FEAE050D2938E50E00F2A496 /* FooterTableView.swift */,
-				FEAE050F2938E64100F2A496 /* FormTableView.swift */,
+				1D0E3CBF293E382400EF09D5 /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";

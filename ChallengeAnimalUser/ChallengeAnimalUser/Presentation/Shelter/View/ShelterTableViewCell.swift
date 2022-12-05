@@ -8,7 +8,6 @@ import UIKit
 import SDWebImage
 
 
-
 final class ShelterTableViewCell: UITableViewCell {
 
     static var identifier = "ShelterTableViewCell"
@@ -59,7 +58,7 @@ final class ShelterTableViewCell: UITableViewCell {
 
 extension ShelterTableViewCell: ViewCodingProtocol {
     func setupView() {
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
     }
 
     func setupHierarchy() {

@@ -107,7 +107,7 @@ final class PetTableViewCell: UITableViewCell {
 extension PetTableViewCell: ViewCodingProtocol {
 
     func setupView() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
 
     func setupHierarchy() {
