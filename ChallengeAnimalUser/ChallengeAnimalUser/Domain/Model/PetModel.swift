@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pet {
+struct PetModel {
     var name: String
     var image: URL?
     var age: Int

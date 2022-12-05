@@ -116,7 +116,7 @@ extension PetViewController: UITableViewDataSource {
         let image: CKAsset = testeRecord[indexPath.row].object(forKey: "image") as! CKAsset
 
         let imageURL: URL? = URL(string: image.fileURL!.absoluteString)
-        let cellInfo = Pet(name: name, image: imageURL, age: 10, isNeutered: true)
+        let cellInfo = PetModel(name: name, image: imageURL, age: 10, isNeutered: true)
 
         cell.petInfo = cellInfo
 

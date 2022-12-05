@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */; };
-		8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3AA293648BC0032BAC9 /* ViewCoding.swift */; };
+		8505B3AB293648BC0032BAC9 /* ViewCodingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3AA293648BC0032BAC9 /* ViewCodingProtocol.swift */; };
 		852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A026029366D8200C4B7D0 /* CKAsset+.swift */; };
 		852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A02622936BEBD00C4B7D0 /* UIImageView+.swift */; };
 		852A026A2936C37D00C4B7D0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 852A02692936C37D00C4B7D0 /* SDWebImage */; };
 		852A026C2936C37D00C4B7D0 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 852A026B2936C37D00C4B7D0 /* SDWebImageMapKit */; };
 		853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A02938E07E004DEA9D /* PetTableViewCell.swift */; };
 		853962A32938E620004DEA9D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A22938E620004DEA9D /* UIView+.swift */; };
-		853962A52938E7A2004DEA9D /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A42938E7A2004DEA9D /* Pet.swift */; };
+		853962A52938E7A2004DEA9D /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A42938E7A2004DEA9D /* PetModel.swift */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
@@ -24,6 +24,8 @@
 		95484BBE293126BF0021B21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95484BBC293126BF0021B21B /* LaunchScreen.storyboard */; };
 		95484BFC2931A8BB0021B21B /* ChallengeAnimalUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */; };
 		955813B3293A300D00256D43 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955813B2293A300D00256D43 /* StringProtocol+.swift */; };
+		95903C5E293E2689006AFA4A /* FormEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95903C5D293E2689006AFA4A /* FormEnum.swift */; };
+		95903C61293E2B0C006AFA4A /* ViewCoding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95903C60293E2B0C006AFA4A /* ViewCoding+.swift */; };
 		95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C0462934351F006880A4 /* ObservableObject.swift */; };
 		95E5C0492934DA4E006880A4 /* ICloudRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C0482934DA4E006880A4 /* ICloudRepository.swift */; };
 		95E5C04B29356F0B006880A4 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E5C04A29356F0B006880A4 /* PetView.swift */; };
@@ -57,12 +59,12 @@
 
 /* Begin PBXFileReference section */
 		8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterTableViewCell.swift; sourceTree = "<group>"; };
-		8505B3AA293648BC0032BAC9 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
+		8505B3AA293648BC0032BAC9 /* ViewCodingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodingProtocol.swift; sourceTree = "<group>"; };
 		852A026029366D8200C4B7D0 /* CKAsset+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+.swift"; sourceTree = "<group>"; };
 		852A02622936BEBD00C4B7D0 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		853962A02938E07E004DEA9D /* PetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
 		853962A22938E620004DEA9D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		853962A42938E7A2004DEA9D /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		853962A42938E7A2004DEA9D /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		95484BF92931A8BB0021B21B /* ChallengeAnimalUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAnimalUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAnimalUserTests.swift; sourceTree = "<group>"; };
 		955813B2293A300D00256D43 /* StringProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
+		95903C5D293E2689006AFA4A /* FormEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEnum.swift; sourceTree = "<group>"; };
+		95903C60293E2B0C006AFA4A /* ViewCoding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewCoding+.swift"; sourceTree = "<group>"; };
 		95E5C0462934351F006880A4 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		95E5C0482934DA4E006880A4 /* ICloudRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudRepository.swift; sourceTree = "<group>"; };
 		95E5C04A29356F0B006880A4 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
@@ -183,12 +187,10 @@
 		8505B39C29362ECC0032BAC9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				95E5C0462934351F006880A4 /* ObservableObject.swift */,
-				8505B3AA293648BC0032BAC9 /* ViewCoding.swift */,
-				852A026029366D8200C4B7D0 /* CKAsset+.swift */,
-				852A02622936BEBD00C4B7D0 /* UIImageView+.swift */,
-				853962A22938E620004DEA9D /* UIView+.swift */,
-				955813B2293A300D00256D43 /* StringProtocol+.swift */,
+				95903C63293E2D3D006AFA4A /* Objects */,
+				95903C62293E2D05006AFA4A /* Extensions */,
+				95903C5F293E27A8006AFA4A /* Protocols */,
+				95903C5C293E2658006AFA4A /* Enums */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -257,9 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				95FBA3832933D2DA0071F130 /* ShelterModel.swift */,
-				95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */,
 				FEAE05152938E86B00F2A496 /* FormModel.swift */,
-				853962A42938E7A2004DEA9D /* Pet.swift */,
+				853962A42938E7A2004DEA9D /* PetModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,8 +301,8 @@
 				8505B39B29362EB50032BAC9 /* Resources */,
 				8505B39A29362EA60032BAC9 /* Application */,
 				8505B39729362E270032BAC9 /* Presentation */,
-				8505B39629362E200032BAC9 /* Domain */,
 				8505B39529362E180032BAC9 /* Data */,
+				8505B39629362E200032BAC9 /* Domain */,
 				8505B39C29362ECC0032BAC9 /* Utils */,
 				95484BBF293126BF0021B21B /* Info.plist */,
 			);
@@ -314,6 +315,43 @@
 				95484BFB2931A8BB0021B21B /* ChallengeAnimalUserTests.swift */,
 			);
 			path = ChallengeAnimalUserTests;
+			sourceTree = "<group>";
+		};
+		95903C5C293E2658006AFA4A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				95FBA3852933FA860071F130 /* RecordsNamesEnum.swift */,
+				95903C5D293E2689006AFA4A /* FormEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		95903C5F293E27A8006AFA4A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8505B3AA293648BC0032BAC9 /* ViewCodingProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		95903C62293E2D05006AFA4A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				95903C60293E2B0C006AFA4A /* ViewCoding+.swift */,
+				852A026029366D8200C4B7D0 /* CKAsset+.swift */,
+				852A02622936BEBD00C4B7D0 /* UIImageView+.swift */,
+				853962A22938E620004DEA9D /* UIView+.swift */,
+				955813B2293A300D00256D43 /* StringProtocol+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		95903C63293E2D3D006AFA4A /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				95E5C0462934351F006880A4 /* ObservableObject.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		95E5C04E293574E8006880A4 /* ViewController */ = {
@@ -507,9 +545,10 @@
 				FEAE051D293A192500F2A496 /* TextFieldFormTableViewController.swift in Sources */,
 				95E5C052293575AC006880A4 /* PetViewModel.swift in Sources */,
 				FEAE05092938E2F800F2A496 /* ImageTableViewCell.swift in Sources */,
-				853962A52938E7A2004DEA9D /* Pet.swift in Sources */,
+				853962A52938E7A2004DEA9D /* PetModel.swift in Sources */,
 				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
 				95484BB6293126BF0021B21B /* ShelterViewController.swift in Sources */,
+				95903C61293E2B0C006AFA4A /* ViewCoding+.swift in Sources */,
 				FEAE05182938E91700F2A496 /* ImagesFormTableViewController.swift in Sources */,
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
 				853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */,
@@ -518,9 +557,10 @@
 				95FBA37D29339D0C0071F130 /* SheltersView.swift in Sources */,
 				FEAE051B2938ED1000F2A496 /* FormViewModel.swift in Sources */,
 				FEAE05142938E81D00F2A496 /* ModelFormTableViewController.swift in Sources */,
+				95903C5E293E2689006AFA4A /* FormEnum.swift in Sources */,
 				852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */,
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
-				8505B3AB293648BC0032BAC9 /* ViewCoding.swift in Sources */,
+				8505B3AB293648BC0032BAC9 /* ViewCodingProtocol.swift in Sources */,
 				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
 				FEAE05162938E86B00F2A496 /* FormModel.swift in Sources */,
 				95E5C0492934DA4E006880A4 /* ICloudRepository.swift in Sources */,

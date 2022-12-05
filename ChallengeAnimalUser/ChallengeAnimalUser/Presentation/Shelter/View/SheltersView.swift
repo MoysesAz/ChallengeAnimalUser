@@ -45,7 +45,7 @@ extension ShelterView: SheltersViewProtocol {
     }
 }
 
-extension ShelterView: ViewCoding {
+extension ShelterView: ViewCodingProtocol {
     func setupView() {
         backgroundColor = .white
         setupHierarchy()

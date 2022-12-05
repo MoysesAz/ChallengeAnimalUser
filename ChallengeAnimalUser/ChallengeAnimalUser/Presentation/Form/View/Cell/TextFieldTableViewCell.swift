@@ -34,7 +34,7 @@ class TextFieldFormTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(form: Form, indexPath: IndexPath) {
+    func configure(form: FormEnum, indexPath: IndexPath) {
         switch form {
         case .userContact:
             switch indexPath.row {
@@ -58,7 +58,7 @@ class TextFieldFormTableViewCell: UITableViewCell {
 
 }
 
-extension TextFieldFormTableViewCell: ViewCoding {
+extension TextFieldFormTableViewCell: ViewCodingProtocol {
     func setupView() {
         self.backgroundColor = .clear
     }

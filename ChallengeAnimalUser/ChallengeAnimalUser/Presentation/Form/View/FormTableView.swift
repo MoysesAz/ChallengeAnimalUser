@@ -20,7 +20,7 @@ class FormTableView: UITableView {
     }
 }
 
-extension FormTableView: ViewCoding {
+extension FormTableView: ViewCodingProtocol {
     func setupView() {
         self.register(
             ImageFormTableViewCell.self,

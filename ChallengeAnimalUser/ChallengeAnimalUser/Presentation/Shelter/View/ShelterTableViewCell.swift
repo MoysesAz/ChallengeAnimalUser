@@ -57,7 +57,7 @@ final class ShelterTableViewCell: UITableViewCell {
 
 }
 
-extension ShelterTableViewCell: ViewCoding {
+extension ShelterTableViewCell: ViewCodingProtocol {
     func setupView() {
         self.backgroundColor = .white
     }

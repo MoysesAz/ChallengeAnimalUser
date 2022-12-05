@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CloudKit
 
 struct ShelterModel {
     let shelterName: String
@@ -17,9 +16,7 @@ struct ShelterModel {
     let name: String
 }
 
-
 struct Shelter {
     var name: String
     var image: URL?
 }
-

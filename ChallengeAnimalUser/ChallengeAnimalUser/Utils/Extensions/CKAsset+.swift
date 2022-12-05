@@ -5,7 +5,6 @@
 //  Created by Joan Wilson Oliveira on 29/11/22.
 //
 
-import Foundation
 import CloudKit
 import UIKit
 

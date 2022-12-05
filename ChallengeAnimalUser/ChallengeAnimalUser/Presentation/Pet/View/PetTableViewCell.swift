@@ -10,7 +10,7 @@ import SDWebImage
 
 protocol PetTableViewCellProtocol: UITableViewCell {
     static var identifier: String { get }
-    var petInfo: Pet? { get set }
+    var petInfo: PetModel? { get set }
     func configureCell()
 }
 
@@ -18,7 +18,7 @@ final class PetTableViewCell: UITableViewCell {
 
     static let identifier: String = "PetTableViewCell"
 
-    var petInfo: Pet? {
+    var petInfo: PetModel? {
         didSet {
             configureCell()
         }
@@ -104,7 +104,7 @@ final class PetTableViewCell: UITableViewCell {
 
 }
 
-extension PetTableViewCell: ViewCoding {
+extension PetTableViewCell: ViewCodingProtocol {
 
     func setupView() {
         backgroundColor = .white

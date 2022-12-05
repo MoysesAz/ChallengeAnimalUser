@@ -24,11 +24,3 @@ class FormModel {
 
     private init() {}
 }
-
-enum Form {
-    case rgData
-    case residenceProof
-    case petLocal
-    case userContact
-    case textToONG
-}

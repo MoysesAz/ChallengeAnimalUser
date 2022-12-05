@@ -52,7 +52,7 @@ class HeaderFormTableView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(form: Form) {
+    func configure(form: FormEnum) {
         switch form {
         case .rgData:
             self.topic.text = "Parte 1 de 5"
@@ -76,7 +76,7 @@ class HeaderFormTableView: UIView {
     }
 }
 
-extension HeaderFormTableView: ViewCoding {
+extension HeaderFormTableView: ViewCodingProtocol {
     func setupView() {
         self.backgroundColor = .clear
     }
