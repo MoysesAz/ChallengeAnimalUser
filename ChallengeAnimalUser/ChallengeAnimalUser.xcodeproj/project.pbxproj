@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0E3CC5293F88F300EF09D5 /* FormOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0E3CC4293F88F300EF09D5 /* FormOnboardingView.swift */; };
+		1D0E3CC7293F891D00EF09D5 /* FormOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0E3CC6293F891D00EF09D5 /* FormOnboardingViewModel.swift */; };
+		1D0E3CC9293F8AB700EF09D5 /* FormOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0E3CC8293F8AB700EF09D5 /* FormOnboardingViewController.swift */; };
 		8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */; };
 		8505B3AB293648BC0032BAC9 /* ViewCodingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505B3AA293648BC0032BAC9 /* ViewCodingProtocol.swift */; };
 		852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A026029366D8200C4B7D0 /* CKAsset+.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D0E3CC4293F88F300EF09D5 /* FormOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormOnboardingView.swift; sourceTree = "<group>"; };
+		1D0E3CC6293F891D00EF09D5 /* FormOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormOnboardingViewModel.swift; sourceTree = "<group>"; };
+		1D0E3CC8293F8AB700EF09D5 /* FormOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormOnboardingViewController.swift; sourceTree = "<group>"; };
 		8505B3A8293648A10032BAC9 /* ShelterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterTableViewCell.swift; sourceTree = "<group>"; };
 		8505B3AA293648BC0032BAC9 /* ViewCodingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodingProtocol.swift; sourceTree = "<group>"; };
 		852A026029366D8200C4B7D0 /* CKAsset+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKAsset+.swift"; sourceTree = "<group>"; };
@@ -132,6 +138,40 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		1D0E3CC0293F884900EF09D5 /* FormOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1D0E3CC1293F887200EF09D5 /* View */,
+				1D0E3CC3293F88A100EF09D5 /* ViewController */,
+				1D0E3CC2293F889700EF09D5 /* ViewModel */,
+			);
+			path = FormOnboarding;
+			sourceTree = "<group>";
+		};
+		1D0E3CC1293F887200EF09D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D0E3CC4293F88F300EF09D5 /* FormOnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1D0E3CC2293F889700EF09D5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D0E3CC6293F891D00EF09D5 /* FormOnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1D0E3CC3293F88A100EF09D5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D0E3CC8293F8AB700EF09D5 /* FormOnboardingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		8505B39529362E180032BAC9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +191,7 @@
 		8505B39729362E270032BAC9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1D0E3CC0293F884900EF09D5 /* FormOnboarding */,
 				8505B39D29362EE20032BAC9 /* LaunchScreen */,
 				FEAE05042938E1B500F2A496 /* Form */,
 				8505B39829362E320032BAC9 /* Shelter */,
@@ -552,6 +593,7 @@
 				FEAE05102938E64100F2A496 /* FormTableView.swift in Sources */,
 				FEAE051D293A192500F2A496 /* TextFieldFormTableViewController.swift in Sources */,
 				95E5C052293575AC006880A4 /* PetViewModel.swift in Sources */,
+				1D0E3CC9293F8AB700EF09D5 /* FormOnboardingViewController.swift in Sources */,
 				FEAE05092938E2F800F2A496 /* ImageTableViewCell.swift in Sources */,
 				853962A52938E7A2004DEA9D /* PetModel.swift in Sources */,
 				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
@@ -570,7 +612,9 @@
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
 				8505B3AB293648BC0032BAC9 /* ViewCodingProtocol.swift in Sources */,
 				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
+				1D0E3CC5293F88F300EF09D5 /* FormOnboardingView.swift in Sources */,
 				FEAE05162938E86B00F2A496 /* FormModel.swift in Sources */,
+				1D0E3CC7293F891D00EF09D5 /* FormOnboardingViewModel.swift in Sources */,
 				95E5C0492934DA4E006880A4 /* ICloudRepository.swift in Sources */,
 				95E5C05029357555006880A4 /* PetViewController.swift in Sources */,
 				FEAE050E2938E50E00F2A496 /* FooterTableView.swift in Sources */,
