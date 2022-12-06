@@ -7,7 +7,6 @@
 import UIKit
 import SDWebImage
 
-
 final class ShelterTableViewCell: UITableViewCell {
 
     static var identifier = "ShelterTableViewCell"
@@ -25,28 +24,23 @@ final class ShelterTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
-
         return imageView
     }()
 
     lazy var shelterLabel: UILabel = {
         let label = UILabel()
         label.text = "Abrigo Indefinido"
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
-
         return label
     }()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
         buildLayout()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     private func configureCell() {
@@ -58,25 +52,39 @@ final class ShelterTableViewCell: UITableViewCell {
 
 extension ShelterTableViewCell: ViewCodingProtocol {
     func setupView() {
-        self.backgroundColor = .systemBackground
+        contentView.backgroundColor = .systemBackground
     }
 
     func setupHierarchy() {
-        self.addSubview(shelterImage)
-        self.addSubview(shelterLabel)
+        contentView.add(subviews: shelterImage, shelterLabel)
     }
 
     func setupConstraints() {
+        shelterImageConstraints()
+        shelterLabelConstraints()
+    }
+}
+
+extension ShelterTableViewCell {
+    private func shelterImageConstraints() {
         NSLayoutConstraint.activate([
-            shelterImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.bounds.width*0.05),
+            shelterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.bounds.width*0.05),
             shelterImage.heightAnchor.constraint(equalToConstant: 80),
             shelterImage.widthAnchor.constraint(equalToConstant: 80),
-            shelterImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-
-            shelterLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor, constant: self.bounds.width*0.1)
+            shelterImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
-
     }
 
+    private func shelterLabelConstraints() {
+        NSLayoutConstraint.activate([
+            shelterLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor, constant: contentView.bounds.width*0.1),
+            shelterLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
+            shelterLabel.centerYAnchor.constraint(equalTo: shelterImage.centerYAnchor),
+            shelterLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+
+        ])
+    }
 }
+
+
