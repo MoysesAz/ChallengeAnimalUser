@@ -15,7 +15,6 @@ protocol PetTableViewCellProtocol: UITableViewCell {
 }
 
 final class PetTableViewCell: UITableViewCell {
-
     static let identifier: String = "PetTableViewCell"
 
     var petInfo: PetModel? {
@@ -24,30 +23,26 @@ final class PetTableViewCell: UITableViewCell {
         }
     }
 
-    lazy var petImage: UIImageView = {
+    private lazy var petImage: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
-        //        imageView.image = UIImage(systemName: "person")
-        imageView.backgroundColor = .blue
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
-
         return imageView
     }()
 
-    lazy var petLabel: UILabel = {
+    private lazy var petLabel: UILabel = {
         let label = UILabel()
         label.text = "pet Indefinido".capitalized
         label.font = .systemFont(ofSize: 20, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
-
         return label
     }()
 
     lazy var petProperties: UILabel = {
         let label = UILabel()
-        label.text =  "X anos, Castrado, Vacinado"
+        label.text = "X anos, Castrado, Vacinado"
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -56,25 +51,18 @@ final class PetTableViewCell: UITableViewCell {
 
     lazy var petDescription: UILabel = {
         let label = UILabel()
-        label.text =  "Pet pronto para ser adotado"
+        label.text = "Pet pronto para ser adotado"
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
-
         return label
     }()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
         buildLayout()
-
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
-    internal func configureCell() {
+    public func configureCell() {
         petImage.sd_setImage(with: petInfo?.image)
         petImage.layer.cornerRadius = 10
         petLabel.text = petInfo?.name.capitalized
@@ -86,20 +74,10 @@ final class PetTableViewCell: UITableViewCell {
     }
 
     private func setPetProperties(age: String, isNeutered: Bool, isVaccined: Bool) {
-        var neutered = "Não castrado"
-        var vaccined = "Não vacinado"
-
-        if isNeutered {
-            neutered = "Castrado"
-        }
-
-        if isVaccined {
-            vaccined = "Vacinado"
-        }
-
+        var neutered = isNeutered ? "Castrado" : "Não castrado"
+        var vaccined = isVaccined ? "Vacinado" : "Não vacinado"
         let text: String = "\(age), \(neutered), \(vaccined)"
-
-        self.petProperties.text = text
+        petProperties.text = text
     }
 
 }

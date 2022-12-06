@@ -52,7 +52,7 @@ final class PetViewController: UIViewController {
         cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
         contentView.loadData()
         cloudRepository.cacheRecords.bind { value in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async() {
                 if value != nil {
                     guard let value else {return}
                     self.testeRecord = value.map { $0 }
@@ -62,8 +62,6 @@ final class PetViewController: UIViewController {
             }
         }
     }
-
-    
 
     func createFilterNavigationItem() {
         let button = UIButton(type: .custom)
@@ -86,12 +84,10 @@ extension PetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = ImagesFormTableViewController(form: .rgData)
         self.navigationController?.pushViewController(viewController, animated: true)
-
     }
 }
 
 extension PetViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Animais disponíveis"
     }
@@ -105,25 +101,11 @@ extension PetViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: PetTableViewCell.identifier,
-            for: indexPath
-        ) as? PetTableViewCell else {
+        guard let cell = viewModel.makeCell(tableView, cellForRowAt: indexPath, records: testeRecord) else {
             return UITableViewCell()
         }
-
-        let name = testeRecord[indexPath.row].value(forKey: "nameAnimal") as! String
-        let image: CKAsset = testeRecord[indexPath.row].object(forKey: "image") as! CKAsset
-
-        let imageURL: URL? = URL(string: image.fileURL!.absoluteString)
-        let cellInfo = PetModel(name: name, image: imageURL, age: 10, isNeutered: true)
-
-        cell.petInfo = cellInfo
-
         return cell
     }
 }
 
-extension PetViewController: UISearchBarDelegate {
-
-}
+extension PetViewController: UISearchBarDelegate {}

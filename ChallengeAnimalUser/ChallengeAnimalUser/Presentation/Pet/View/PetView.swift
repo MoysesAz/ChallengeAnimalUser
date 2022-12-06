@@ -8,13 +8,14 @@ import UIKit
 
 protocol PetViewProtocol {
     var tableAnimal: UITableView { get }
+    var indicator: UIActivityIndicatorView { get }
     func configure()
     func loadData()
 }
 
 final class PetView: UIView {
     lazy var indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .medium)
+        let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.startAnimating()
         return indicator
@@ -27,24 +28,31 @@ final class PetView: UIView {
         return tableAnimal
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
         buildLayout()
-        configure()
+    }
+}
+
+extension PetView: PetViewProtocol {
+    func loadData() {
+        indicator.isHidden = false
+        tableAnimal.isHidden = true
     }
 
-    required init?(coder: NSCoder) {
-        return nil
+    func configure() {
+        indicator.isHidden = true
+        tableAnimal.isHidden = false
     }
 }
 
 extension PetView: ViewCodingProtocol {
     func setupView() {
-        //Quebrando SOLID
+        backgroundColor = .systemBackground
     }
 
     func setupHierarchy() {
-        self.add(subviews: tableAnimal, indicator)
+        add(subviews: tableAnimal, indicator)
     }
 
     func setupConstraints() {
@@ -54,7 +62,6 @@ extension PetView: ViewCodingProtocol {
 
 }
 
-// MARK: - Constraints
 extension PetView {
     private func indicatorConstraints() {
         NSLayoutConstraint.activate([
@@ -63,22 +70,12 @@ extension PetView {
         ])
     }
 
-    func tableAnimalConstraints() {
+    private func tableAnimalConstraints() {
         NSLayoutConstraint.activate([
             tableAnimal.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tableAnimal.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             tableAnimal.topAnchor.constraint(equalTo: self.topAnchor),
             tableAnimal.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-    }
-}
-
-extension PetView: PetViewProtocol {
-    func loadData() {
-        indicator.isHidden = false
-    }
-
-    func configure() {
-        indicator.isHidden = true
     }
 }
