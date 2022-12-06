@@ -5,7 +5,6 @@
 //  Created by Moyses Miranda do Vale Azevedo on 27/11/22.
 //
 
-import Foundation
 import UIKit
 
 protocol SheltersViewProtocol: UIView {
@@ -14,7 +13,7 @@ protocol SheltersViewProtocol: UIView {
     func configure()
 }
 
-class ShelterView: UIView {
+final class ShelterView: UIView {
     lazy var indicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +28,8 @@ class ShelterView: UIView {
     }()
 
     override func willMove(toWindow newWindow: UIWindow?) {
-        setupView()
+        super.willMove(toWindow: newWindow)
+        buildLayout()
     }
 }
 
@@ -48,15 +48,12 @@ extension ShelterView: SheltersViewProtocol {
 extension ShelterView: ViewCodingProtocol {
     func setupView() {
         backgroundColor = .systemBackground
-        setupHierarchy()
-        setupConstraints()
     }
 
     func setupHierarchy() {
-        addSubview(tableShelters)
-        addSubview(indicator)
+        add(subviews: tableShelters, indicator)
     }
-    
+
     func setupConstraints() {
         indicatorConstraints()
         tableSheltersConstraints()
@@ -64,8 +61,6 @@ extension ShelterView: ViewCodingProtocol {
 }
 
 extension ShelterView {
-    
-
     private func indicatorConstraints() {
         NSLayoutConstraint.activate([
             indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -73,7 +68,7 @@ extension ShelterView {
         ])
     }
 
-    func tableSheltersConstraints() {
+    private func tableSheltersConstraints() {
         NSLayoutConstraint.activate([
             tableShelters.heightAnchor.constraint(equalTo: heightAnchor),
             tableShelters.widthAnchor.constraint(equalTo: widthAnchor),
