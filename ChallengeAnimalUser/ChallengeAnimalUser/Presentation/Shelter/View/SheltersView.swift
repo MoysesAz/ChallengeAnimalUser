@@ -45,9 +45,9 @@ extension ShelterView: SheltersViewProtocol {
     }
 }
 
-extension ShelterView: ViewCoding {
+extension ShelterView: ViewCodingProtocol {
     func setupView() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         setupHierarchy()
         setupConstraints()
     }
@@ -56,13 +56,15 @@ extension ShelterView: ViewCoding {
         addSubview(tableShelters)
         addSubview(indicator)
     }
-}
-
-extension ShelterView {
+    
     func setupConstraints() {
         indicatorConstraints()
         tableSheltersConstraints()
     }
+}
+
+extension ShelterView {
+    
 
     private func indicatorConstraints() {
         NSLayoutConstraint.activate([

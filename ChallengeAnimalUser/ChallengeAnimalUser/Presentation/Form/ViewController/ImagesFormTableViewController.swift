@@ -9,7 +9,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class ImagesFormTableViewController: ModelFormTableViewController {
+final class ImagesFormTableViewController: ModelFormTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         (form == .rgData) ? 2 : 1
     }

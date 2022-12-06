@@ -10,9 +10,9 @@ import UIKit
 class ModelFormTableViewController: UITableViewController {
 
     var viewModel = FormViewModel()
-    var form: Form?
+    var form: FormEnum?
 
-    init(form: Form) {
+    init(form: FormEnum) {
         self.form = form
         super.init(nibName: nil, bundle: nil)
     }
@@ -102,12 +102,12 @@ extension ModelFormTableViewController: PushButtonFormDelegate {
         }
     }
 
-    private func pushImageViewController(form: Form) {
+    private func pushImageViewController(form: FormEnum) {
         let viewController = ImagesFormTableViewController(form: form)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
-    private func pushTextFieldViewController(form: Form) {
+    private func pushTextFieldViewController(form: FormEnum) {
         let viewController = TextFieldFormTableViewController(form: form)
         self.navigationController?.pushViewController(viewController, animated: true)
     }

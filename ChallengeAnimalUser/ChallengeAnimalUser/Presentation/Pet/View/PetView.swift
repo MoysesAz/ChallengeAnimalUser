@@ -38,7 +38,7 @@ final class PetView: UIView {
     }
 }
 
-extension PetView: ViewCoding {
+extension PetView: ViewCodingProtocol {
     func setupView() {
         //Quebrando SOLID
     }

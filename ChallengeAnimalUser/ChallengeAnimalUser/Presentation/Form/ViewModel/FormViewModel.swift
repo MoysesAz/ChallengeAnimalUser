@@ -11,7 +11,7 @@ class FormViewModel {
 
     init() {}
 
-    func setTitle(form: Form) -> String {
+    func setTitle(form: FormEnum) -> String {
         switch form {
         case .rgData:
             return "RG ou CNH"
@@ -30,7 +30,7 @@ class FormViewModel {
         FormModel.instance.resetAll()
     }
 
-    func getImageFromModel(form: Form, buttonTag: Int) -> UIImage? {
+    func getImageFromModel(form: FormEnum, buttonTag: Int) -> UIImage? {
         switch form {
         case .rgData:
             switch buttonTag {
@@ -62,7 +62,7 @@ class FormViewModel {
     func saveImage(
         image: UIImage,
         tableViewTag: Int,
-        form: Form
+        form: FormEnum
     ) {
         switch form {
         case .rgData:

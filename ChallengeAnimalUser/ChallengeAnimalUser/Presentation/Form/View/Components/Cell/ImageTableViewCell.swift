@@ -69,7 +69,7 @@ class ImageFormTableViewCell: UITableViewCell {
     }
 }
 
-extension ImageFormTableViewCell: ViewCoding {
+extension ImageFormTableViewCell: ViewCodingProtocol {
     func setupView() {
         self.backgroundColor = .clear
         button.addTarget(

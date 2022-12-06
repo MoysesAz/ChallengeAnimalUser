@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldFormTableViewController: ModelFormTableViewController {
+final class TextFieldFormTableViewController: ModelFormTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         form == .userContact ? 2 : 1
