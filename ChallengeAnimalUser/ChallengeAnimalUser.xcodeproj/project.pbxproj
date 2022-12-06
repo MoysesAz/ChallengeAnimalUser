@@ -376,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				FEAE050C2938E46500F2A496 /* View */,
-				FEAE050F2938E64100F2A496 /* FormTableView.swift */,
 				FEAE05112938E6BB00F2A496 /* ViewController */,
 				FEAE05192938ECBB00F2A496 /* ViewModel */,
 			);
@@ -396,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				1D0E3CBF293E382400EF09D5 /* Components */,
+				FEAE050F2938E64100F2A496 /* FormTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -741,8 +741,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "ChallengeAnimalUser wants to use your Camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -776,8 +775,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "ChallengeAnimalUser wants to use your Camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

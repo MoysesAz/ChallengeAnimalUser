@@ -12,16 +12,16 @@ class HeaderFormTableView: UIView {
     private lazy var stack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.alignment = .trailing
+        stack.alignment = .center
         stack.spacing = 10
-        stack.distribution = .fillProportionally
+        stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
 
     private lazy var topic: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
+        label.textAlignment = .right
         label.numberOfLines = .max
         label.text = "Topic"
         label.font = UIFont.preferredFont(forTextStyle: .headline)
@@ -30,17 +30,16 @@ class HeaderFormTableView: UIView {
         return label
     }()
 
-    private var topicDescription: UILabel = {
-        let text = UILabel()
-        text.textAlignment = .left
-        text.lineBreakMode = .byWordWrapping
-        text.numberOfLines = .max
-        text.layer.cornerRadius = 5
-        text.text = "Textinho qualquer"
-        text.font = UIFont.preferredFont(forTextStyle: .body)
-        text.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var topicDescription: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.numberOfLines = .max
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Textinho qualquer"
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.translatesAutoresizingMaskIntoConstraints = false
 
-        return text
+        return label
     }()
 
     override init(frame: CGRect) {
@@ -88,26 +87,41 @@ extension HeaderFormTableView: ViewCodingProtocol {
     }
 
     func setupConstraints() {
+        topicConstraints()
+        topicDescriptionConstraints()
+        stackConstraints()
+    }
+}
+
+extension HeaderFormTableView {
+    private func topicConstraints() {
+        NSLayoutConstraint.activate([
+            topic.widthAnchor.constraint(
+                equalTo: self.widthAnchor
+            )
+        ])
+    }
+
+    private func topicDescriptionConstraints() {
         NSLayoutConstraint.activate([
             topicDescription.widthAnchor.constraint(
                 equalTo: self.widthAnchor
-            ),
-            stack.widthAnchor.constraint(
-                equalTo: self.widthAnchor
-            ),
-            stack.centerXAnchor.constraint(
-                equalTo: self.centerXAnchor
-            ),
-            stack.heightAnchor.constraint(
-                greaterThanOrEqualToConstant: 130
-            ),
+            )
+        ])
+    }
+
+    private func stackConstraints() {
+        NSLayoutConstraint.activate([
             stack.topAnchor.constraint(
                 equalTo: self.topAnchor,
                 constant: 15
             ),
             stack.bottomAnchor.constraint(
                 equalTo: self.bottomAnchor,
-                constant: -20
+                constant: -15
+            ),
+            stack.widthAnchor.constraint(
+                equalTo: self.widthAnchor
             )
         ])
     }

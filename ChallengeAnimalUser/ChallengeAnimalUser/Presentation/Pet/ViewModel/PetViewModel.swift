@@ -17,7 +17,11 @@ class PetViewModel {
         self.titleView = titleView
     }
 
-    public func makeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, records: [CKRecord]) -> UITableViewCell? {
+    public func makeCell(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath,
+        records: [CKRecord]
+    ) -> UITableViewCell? {
 
         guard
             let cell = tableView.dequeueReusableCell(
