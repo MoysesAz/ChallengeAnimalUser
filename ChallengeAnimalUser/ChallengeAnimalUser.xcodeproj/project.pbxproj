@@ -16,6 +16,9 @@
 		853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A02938E07E004DEA9D /* PetTableViewCell.swift */; };
 		853962A32938E620004DEA9D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A22938E620004DEA9D /* UIView+.swift */; };
 		853962A52938E7A2004DEA9D /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A42938E7A2004DEA9D /* PetModel.swift */; };
+		85FD52D2293F6B3900CB5717 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD52D1293F6B3900CB5717 /* LoginViewController.swift */; };
+		85FD52D8293F6B9F00CB5717 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD52D7293F6B9F00CB5717 /* LoginView.swift */; };
+		85FD52DA293F6BB900CB5717 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD52D9293F6BB900CB5717 /* LoginViewModel.swift */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
@@ -65,6 +68,9 @@
 		853962A02938E07E004DEA9D /* PetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
 		853962A22938E620004DEA9D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		853962A42938E7A2004DEA9D /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
+		85FD52D1293F6B3900CB5717 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		85FD52D7293F6B9F00CB5717 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		85FD52D9293F6BB900CB5717 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		8505B39729362E270032BAC9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				85FD52D3293F6B4B00CB5717 /* LoginScreen */,
 				8505B39D29362EE20032BAC9 /* LaunchScreen */,
 				FEAE05042938E1B500F2A496 /* Form */,
 				8505B39829362E320032BAC9 /* Shelter */,
@@ -246,6 +253,40 @@
 				95E5C04F29357555006880A4 /* PetViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		85FD52D3293F6B4B00CB5717 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				85FD52D6293F6B7400CB5717 /* ViewModel */,
+				85FD52D5293F6B6D00CB5717 /* ViewController */,
+				85FD52D4293F6B6500CB5717 /* View */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		85FD52D4293F6B6500CB5717 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85FD52D7293F6B9F00CB5717 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		85FD52D5293F6B6D00CB5717 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				85FD52D1293F6B3900CB5717 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		85FD52D6293F6B7400CB5717 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				85FD52D9293F6BB900CB5717 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9547E64F293387AC0074C4D9 /* View */ = {
@@ -557,8 +598,10 @@
 				95FBA3862933FA860071F130 /* RecordsNamesEnum.swift in Sources */,
 				95484BB6293126BF0021B21B /* ShelterViewController.swift in Sources */,
 				95903C61293E2B0C006AFA4A /* ViewCoding+.swift in Sources */,
+				85FD52D8293F6B9F00CB5717 /* LoginView.swift in Sources */,
 				FEAE05182938E91700F2A496 /* ImagesFormTableViewController.swift in Sources */,
 				95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */,
+				85FD52DA293F6BB900CB5717 /* LoginViewModel.swift in Sources */,
 				853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */,
 				853962A32938E620004DEA9D /* UIView+.swift in Sources */,
 				955813B3293A300D00256D43 /* StringProtocol+.swift in Sources */,
@@ -568,6 +611,7 @@
 				95903C5E293E2689006AFA4A /* FormEnum.swift in Sources */,
 				852A02632936BEBD00C4B7D0 /* UIImageView+.swift in Sources */,
 				95E5C0472934351F006880A4 /* ObservableObject.swift in Sources */,
+				85FD52D2293F6B3900CB5717 /* LoginViewController.swift in Sources */,
 				8505B3AB293648BC0032BAC9 /* ViewCodingProtocol.swift in Sources */,
 				95FBA3842933D2DA0071F130 /* ShelterModel.swift in Sources */,
 				FEAE05162938E86B00F2A496 /* FormModel.swift in Sources */,
