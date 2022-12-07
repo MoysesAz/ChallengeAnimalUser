@@ -17,7 +17,27 @@ final class ShelterTableViewCell: UITableViewCell {
         }
     }
 
-    lazy var shelterImage: UIImageView = {
+    private lazy var stack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .center
+        stack.spacing = contentView.bounds.width*0.05
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+
+    private lazy var shelterLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Abrigo Indefinido"
+        label.numberOfLines = .max
+        label.lineBreakMode = .byWordWrapping
+        label.font = .preferredFont(forTextStyle: .body)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private lazy var shelterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
         imageView.image = UIImage(systemName: "person")
@@ -27,17 +47,6 @@ final class ShelterTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    lazy var shelterLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Abrigo Indefinido"
-        label.numberOfLines = 2
-        label.lineBreakMode = .byWordWrapping
-        label.font = .preferredFont(forTextStyle: .body)
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         buildLayout()
@@ -45,7 +54,7 @@ final class ShelterTableViewCell: UITableViewCell {
 
     private func configureCell() {
         shelterImage.sd_setImage(with: shelterInfo?.image)
-        shelterLabel.text = shelterInfo?.name
+        shelterLabel.text = shelterInfo?.name.trimmingCharacters(in: .whitespaces)
     }
 
 }
@@ -56,35 +65,61 @@ extension ShelterTableViewCell: ViewCodingProtocol {
     }
 
     func setupHierarchy() {
-        contentView.add(subviews: shelterImage, shelterLabel)
+        stack.addArrangedSubview(shelterImage)
+        stack.addArrangedSubview(shelterLabel)
+        contentView.add(subviews: stack)
     }
 
     func setupConstraints() {
-        shelterImageConstraints()
         shelterLabelConstraints()
+        shelterImageConstraints()
+        stackConstraints()
     }
 }
 
 extension ShelterTableViewCell {
-    private func shelterImageConstraints() {
+
+    private func stackConstraints() {
+
         NSLayoutConstraint.activate([
-            shelterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.bounds.width*0.05),
-            shelterImage.heightAnchor.constraint(equalToConstant: 80),
-            shelterImage.widthAnchor.constraint(equalToConstant: 80),
-            shelterImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            stack.topAnchor.constraint(
+                equalTo: contentView.topAnchor,
+                constant: 10
+            ),
+            stack.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor,
+                constant: -10
+            ),
+            stack.widthAnchor.constraint(
+                equalTo: contentView.widthAnchor,
+                multiplier: 0.9
+            ),
+            stack.centerXAnchor.constraint(
+                equalTo: contentView.centerXAnchor
+            ),
+            stack.centerYAnchor.constraint(
+                equalTo: contentView.centerYAnchor
+            )
         ])
     }
 
     private func shelterLabelConstraints() {
         NSLayoutConstraint.activate([
-            shelterLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor, constant: contentView.bounds.width*0.1),
-            shelterLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
-            shelterLabel.centerYAnchor.constraint(equalTo: shelterImage.centerYAnchor),
-            shelterLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            shelterLabel.widthAnchor.constraint(
+                equalTo: contentView.widthAnchor,
+                multiplier: 0.65
+            )
+        ])
+    }
 
+    private func shelterImageConstraints() {
+        NSLayoutConstraint.activate([
+            shelterImage.heightAnchor.constraint(
+                equalToConstant: 80
+            ),
+            shelterImage.widthAnchor.constraint(
+                equalToConstant: 80
+            )
         ])
     }
 }
-
-

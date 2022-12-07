@@ -35,7 +35,9 @@ final class PetTableViewCell: UITableViewCell {
     private lazy var petLabel: UILabel = {
         let label = UILabel()
         label.text = "pet Indefinido".capitalized
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.numberOfLines = .max
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,8 +45,9 @@ final class PetTableViewCell: UITableViewCell {
     lazy var petProperties: UILabel = {
         let label = UILabel()
         label.text = "X anos, Castrado, Vacinado"
-        label.font = .systemFont(ofSize: 17, weight: .regular)
-        label.numberOfLines = 0
+        label.numberOfLines = .max
+        label.lineBreakMode = .byWordWrapping
+        label.font = .preferredFont(forTextStyle: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,7 +55,9 @@ final class PetTableViewCell: UITableViewCell {
     lazy var petDescription: UILabel = {
         let label = UILabel()
         label.text = "Pet pronto para ser adotado"
-        label.font = .systemFont(ofSize: 17, weight: .regular)
+        label.numberOfLines = .max
+        label.lineBreakMode = .byWordWrapping
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -74,8 +79,8 @@ final class PetTableViewCell: UITableViewCell {
     }
 
     private func setPetProperties(age: String, isNeutered: Bool, isVaccined: Bool) {
-        var neutered = isNeutered ? "Castrado" : "Não castrado"
-        var vaccined = isVaccined ? "Vacinado" : "Não vacinado"
+        let neutered = isNeutered ? "Castrado" : "Não castrado"
+        let vaccined = isVaccined ? "Vacinado" : "Não vacinado"
         let text: String = "\(age), \(neutered), \(vaccined)"
         petProperties.text = text
     }
@@ -89,24 +94,88 @@ extension PetTableViewCell: ViewCodingProtocol {
     }
 
     func setupHierarchy() {
-        add(subviews: petImage, petLabel, petProperties, petDescription)
+        contentView.add(subviews: petImage, petLabel, petProperties, petDescription)
     }
 
     func setupConstraints() {
+        petImageConstraints()
+        petLabelConstraints()
+        petPropertiesConstraints()
+        petDescriptionConstraints()
+    }
+}
+
+extension PetTableViewCell {
+
+    func petImageConstraints() {
         NSLayoutConstraint.activate([
-            petImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.bounds.width*0.05),
-            petImage.heightAnchor.constraint(equalToConstant: 80),
-            petImage.widthAnchor.constraint(equalToConstant: 80),
-            petImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            petImage.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor,
+                constant: contentView.bounds.width*0.05
+            ),
+            petImage.heightAnchor.constraint(
+                equalToConstant: 80
+            ),
+            petImage.widthAnchor.constraint(
+                equalToConstant: 80
+            ),
+            petImage.centerYAnchor.constraint(
+                equalTo: contentView.centerYAnchor
+            )
+        ])
+    }
 
-            petLabel.topAnchor.constraint(equalTo: petImage.topAnchor),
-            petLabel.leadingAnchor.constraint(equalTo: petImage.trailingAnchor, constant: self.bounds.width*0.05),
+    func petLabelConstraints() {
+        NSLayoutConstraint.activate([
+            petLabel.topAnchor.constraint(
+                equalTo: contentView.topAnchor,
+                constant: 10
+            ),
+            petLabel.leadingAnchor.constraint(
+                equalTo: petImage.trailingAnchor,
+                constant: contentView.bounds.width*0.05
+            ),
+            petLabel.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: -contentView.bounds.width*0.05
+            )
+        ])
+    }
 
-            petProperties.topAnchor.constraint(equalTo: petLabel.bottomAnchor, constant: 10),
-            petProperties.leadingAnchor.constraint(equalTo: petImage.trailingAnchor, constant: self.bounds.width*0.05),
+    func petPropertiesConstraints() {
+        NSLayoutConstraint.activate([
+            petProperties.topAnchor.constraint(
+                equalTo: petLabel.bottomAnchor,
+                constant: 10
+            ),
+            petProperties.leadingAnchor.constraint(
+                equalTo: petImage.trailingAnchor,
+                constant: contentView.bounds.width*0.05
+            ),
+            petProperties.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: -contentView.bounds.width*0.05
+            )
+        ])
+    }
 
-            petDescription.topAnchor.constraint(equalTo: petProperties.bottomAnchor),
-            petDescription.leadingAnchor.constraint(equalTo: petImage.trailingAnchor, constant: self.bounds.width*0.05)
+    func petDescriptionConstraints() {
+        NSLayoutConstraint.activate([
+            petDescription.topAnchor.constraint(
+                equalTo: petProperties.bottomAnchor
+            ),
+            petDescription.leadingAnchor.constraint(
+                equalTo: petImage.trailingAnchor,
+                constant: contentView.bounds.width*0.05
+            ),
+            petDescription.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor,
+                constant: -10
+            ),
+            petDescription.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: -contentView.bounds.width*0.05
+            )
         ])
     }
 
