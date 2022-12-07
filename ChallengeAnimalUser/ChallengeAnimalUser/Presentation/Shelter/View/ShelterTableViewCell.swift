@@ -68,7 +68,8 @@ extension ShelterTableViewCell: ViewCodingProtocol {
 extension ShelterTableViewCell {
     private func shelterImageConstraints() {
         NSLayoutConstraint.activate([
-            shelterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.bounds.width*0.05),
+            shelterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                  constant: contentView.bounds.width*0.05),
             shelterImage.heightAnchor.constraint(equalToConstant: 80),
             shelterImage.widthAnchor.constraint(equalToConstant: 80),
             shelterImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
@@ -78,13 +79,11 @@ extension ShelterTableViewCell {
     private func shelterLabelConstraints() {
         NSLayoutConstraint.activate([
             shelterLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor, constant: contentView.bounds.width*0.1),
+            shelterLabel.leadingAnchor.constraint(equalTo: shelterImage.trailingAnchor,
+                                                  constant: contentView.bounds.width*0.1),
             shelterLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
             shelterLabel.centerYAnchor.constraint(equalTo: shelterImage.centerYAnchor),
-            shelterLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-
+            shelterLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
         ])
     }
 }
-
-
