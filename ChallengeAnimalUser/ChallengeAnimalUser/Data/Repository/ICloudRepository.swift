@@ -45,14 +45,16 @@ final class ICloudRepository: ICloudRepositoryProtocol {
         dataBase.fetch(withQuery: query) { response in
             switch response {
             case .success(let value):
-                _ = value.matchResults.map {
-                    switch $0.1 {
-                    case .success(let record):
-                        records.append(record)
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
+
+
+//                _ = value.matchResults.map {
+//                    switch $0.1 {
+//                    case .success(let record):
+//                        records.append(record)
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
             case .failure(let error):
                 print(error)
             }

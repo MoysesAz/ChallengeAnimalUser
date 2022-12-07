@@ -8,4 +8,19 @@
 import Foundation
 import CloudKit
 
-class ShelterViewModel {}
+class ShelterViewModel {
+    var cloudRepository: ICloudRepositoryProtocol
+
+    var cacheRecores: ObservableObject<[CKRecord]?> = ObservableObject(nil)
+
+    init(cloudRepository: ICloudRepositoryProtocol) {
+        self.cloudRepository = cloudRepository
+    }
+
+    public func fetchRecords() {
+
+    }
+
+
+
+}
