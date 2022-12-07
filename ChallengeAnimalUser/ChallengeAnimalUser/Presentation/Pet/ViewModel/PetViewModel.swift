@@ -11,10 +11,12 @@ import CloudKit
 class PetViewModel {
     let shelterId: CKRecord.Reference
     let titleView: String
+    let repository: CKDatabase
 
-    init(shelterId: CKRecord.Reference, titleView: String) {
+    init(shelterId: CKRecord.Reference, titleView: String, repository: some CKDatabase) {
         self.shelterId = shelterId
         self.titleView = titleView
+        self.repository = repository
     }
 
     public func makeCell(
