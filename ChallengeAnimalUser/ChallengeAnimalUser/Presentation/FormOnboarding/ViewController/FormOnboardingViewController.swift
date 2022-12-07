@@ -11,11 +11,10 @@ class FormOnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         title = "Cadastro para adoção"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         // Do any additional setup after loading the view.
+        view = FormOnboardingView()
     }
 
     /*
