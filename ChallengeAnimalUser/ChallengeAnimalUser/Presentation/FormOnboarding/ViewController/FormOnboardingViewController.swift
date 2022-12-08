@@ -9,12 +9,21 @@ import UIKit
 
 class FormOnboardingViewController: UIViewController {
 
+    let customView = FormOnboardingView()
+
+    override func loadView() {
+        view = customView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cadastro para adoção"
         navigationController?.navigationBar.prefersLargeTitles = true
-        // Do any additional setup after loading the view.
-        view = FormOnboardingView()
+        let nextController = ImagesFormTableViewController(form: .rgData)
+        customView.didTapButton = {
+            self.navigationController?.pushViewController(nextController, animated: true)
+        }
+      //  ImageFromTableViewController(form: .rgdata)
     }
 
     /*
