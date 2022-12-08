@@ -6,9 +6,16 @@
 import UIKit
 import Foundation
 
-class LoginViewController: UIViewController, LoginViewDelegate {
+class LoginViewController: UIViewController, UIScrollViewDelegate {
+    
     var screen: LoginView?
+
     func loginView(_ loginView: LoginView, didTapOnLoginButton button: UIButton) {}
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+    }
+
     override func loadView() {
         self.screen = LoginView()
         self.screen?.delegate = self

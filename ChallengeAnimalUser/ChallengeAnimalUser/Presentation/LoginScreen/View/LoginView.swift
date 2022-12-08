@@ -12,17 +12,30 @@ protocol LoginViewDelegate: AnyObject {
     func loginView(_ loginView: LoginView, didTapOnLoginButton button: UIButton)
 }
 
-class LoginView: UIView {
+class LoginView: UIScrollView {
 
-    weak var delegate: LoginViewDelegate?
+    //weak var delegate: Login?
 
+
+    
     lazy var parallaxBlock1: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "Imagem1")
+        image.image = UIImage(named: "parallaxBlock1")
 
         // FOR DEBUG ONLY
         image.layer.borderColor = UIColor.blue.cgColor
+        image.layer.borderWidth = 1
+        // - - - - - - - -
+        return image
+    }()
+    lazy var parallaxBlock2: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "parallaxBlock2")
+
+        // FOR DEBUG ONLY
+        image.layer.borderColor = UIColor.red.cgColor
         image.layer.borderWidth = 1
         // - - - - - - - -
         return image
@@ -31,7 +44,7 @@ class LoginView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 40)
+        label.font = .preferredFont(forTextStyle: .largeTitle)
         label.text = "Salve uma vida"
         // FOR DEBUG ONLY
         label.layer.borderColor = UIColor.red.cgColor
@@ -43,9 +56,10 @@ class LoginView: UIView {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .body)
+        label.numberOfLines = .max
+        label.lineBreakMode = .byWordWrapping
         label.text = "Uma forma prática de encontrar os animais nos abrigos mais próximos de você e lhes dar a chance de ter um novo lar."
         // FOR DEBUG ONLY
         label.layer.borderColor = UIColor.green.cgColor
@@ -69,8 +83,8 @@ class LoginView: UIView {
     lazy var tick1Label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .caption1)
         label.numberOfLines = 0
         label.text = "Veja todos os abrigos próximos"
         // FOR DEBUG ONLY
@@ -93,10 +107,10 @@ class LoginView: UIView {
     lazy var tick2Label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .caption1)
         label.numberOfLines = 0
-        label.text = "Veja todos os abrigos próximos"
+        label.text = "Busque pelo animal ideal para você"
         // FOR DEBUG ONLY
         label.layer.borderColor = UIColor.red.cgColor
         label.layer.borderWidth = 1
@@ -118,15 +132,27 @@ class LoginView: UIView {
     lazy var tick3Label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .caption1)
         label.numberOfLines = 0
-        label.text = "Veja todos os abrigos próximos"
+        label.text = "Envie o pedido de adoção pelo próprio app"
         // FOR DEBUG ONLY
         label.layer.borderColor = UIColor.red.cgColor
         label.layer.borderWidth = 1
         // - - - - - - - -
         return label
+    }()
+
+    lazy var appleLoginButton: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "appleLoginButton")
+
+        // FOR DEBUG ONLY
+        image.layer.borderColor = UIColor.blue.cgColor
+        image.layer.borderWidth = 1
+        // - - - - - - - -
+        return image
     }()
 
     override init(frame: CGRect) {
@@ -144,9 +170,6 @@ class LoginView: UIView {
 }
 
 extension LoginView {
-    @objc private func actLogin(sender: UIButton) {
-        delegate?.loginView(self, didTapOnLoginButton: sender)
-    }
 }
 
 extension LoginView: ViewCodingProtocol {
@@ -155,11 +178,23 @@ extension LoginView: ViewCodingProtocol {
     }
 
     func setupHierarchy() {
-        self.add(subviews: parallaxBlock1, titleLabel, descriptionLabel, tick1, tick1Label, tick2, tick2Label, tick3, tick3Label)
+        self.add(subviews:
+                 parallaxBlock1,
+                 parallaxBlock2,
+                 titleLabel,
+                 descriptionLabel,
+                 tick1,
+                 tick1Label,
+                 tick2,
+                 tick2Label,
+                 tick3,
+                 tick3Label,
+                 appleLoginButton)
     }
 
     func setupConstraints() {
         parallaxBlock1Constraints()
+        parallaxBlock2Constraints()
         titleLabelConstraints()
         descriptionLabelConstraints()
         tick1Constraints()
@@ -168,6 +203,8 @@ extension LoginView: ViewCodingProtocol {
         tick2LabelConstraints()
         tick3Constraints()
         tick3LabelConstraints()
+        appleLoginButtonConstraints()
+
     }
 
 }
@@ -176,8 +213,15 @@ extension LoginView {
     func parallaxBlock1Constraints() {
         NSLayoutConstraint.activate([
             self.parallaxBlock1.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
-            self.parallaxBlock1.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.05),
+            self.parallaxBlock1.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.20),
             self.parallaxBlock1.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+    }
+    func parallaxBlock2Constraints() {
+        NSLayoutConstraint.activate([
+            self.parallaxBlock2.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
+            self.parallaxBlock2.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.20),
+            self.parallaxBlock2.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
     func titleLabelConstraints() {
@@ -188,45 +232,59 @@ extension LoginView {
     }
     func descriptionLabelConstraints() {
         NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 4),
+            self.descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 20),
             self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
+            self.descriptionLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
         ])
     }
     func tick1Constraints() {
         NSLayoutConstraint.activate([
-            self.tick1.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 30),
-            self.tick1.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
+            self.tick1.centerYAnchor.constraint(equalTo: self.tick1Label.centerYAnchor),
+            self.tick1.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            self.tick1.widthAnchor.constraint(equalToConstant: 21),
+            self.tick1.heightAnchor.constraint(equalToConstant: 21)
         ])
     }
     func tick1LabelConstraints() {
         NSLayoutConstraint.activate([
             self.tick1Label.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 30),
-            self.tick1Label.leadingAnchor.constraint(equalTo: self.tick1.trailingAnchor, constant: 5)
+            self.tick1Label.leadingAnchor.constraint(equalTo: self.tick1.trailingAnchor, constant: 5),
+            self.tick1Label.trailingAnchor.constraint(equalTo: self.descriptionLabel.trailingAnchor)
         ])
     }
     func tick2Constraints() {
         NSLayoutConstraint.activate([
-            self.tick2.topAnchor.constraint(equalTo: self.tick1.bottomAnchor, constant: 15),
+            self.tick2.centerYAnchor.constraint(equalTo: self.tick2Label.centerYAnchor),
             self.tick2.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
         ])
     }
     func tick2LabelConstraints() {
         NSLayoutConstraint.activate([
             self.tick2Label.topAnchor.constraint(equalTo: self.tick1Label.bottomAnchor, constant: 15),
-            self.tick2Label.leadingAnchor.constraint(equalTo: self.tick1.trailingAnchor, constant: 5)
+            self.tick2Label.leadingAnchor.constraint(equalTo: self.tick1Label.leadingAnchor),
+            self.tick2Label.trailingAnchor.constraint(equalTo: self.descriptionLabel.trailingAnchor)
+            
         ])
     }
     func tick3Constraints() {
         NSLayoutConstraint.activate([
-            self.tick3.topAnchor.constraint(equalTo: self.tick2.bottomAnchor, constant: 15),
+            self.tick3.centerYAnchor.constraint(equalTo: self.tick3Label.centerYAnchor),
             self.tick3.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
         ])
     }
     func tick3LabelConstraints() {
         NSLayoutConstraint.activate([
-            self.tick3Label.topAnchor.constraint(equalTo: self.tick2Label.bottomAnchor, constant: 15),
-            self.tick3Label.leadingAnchor.constraint(equalTo: self.tick2.trailingAnchor, constant: 5)
+            self.tick3Label.topAnchor.constraint(equalTo: self.tick2Label.bottomAnchor, constant: 15), // OK
+            self.tick3Label.leadingAnchor.constraint(equalTo: self.tick2Label.leadingAnchor), // OK
+            self.tick3Label.trailingAnchor.constraint(equalTo: self.descriptionLabel.trailingAnchor)
+
+        ])
+    }
+    func appleLoginButtonConstraints() {
+        NSLayoutConstraint.activate([
+
+            self.appleLoginButton.topAnchor.constraint(equalTo: self.tick3Label.bottomAnchor, constant: 80),
+            self.appleLoginButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
