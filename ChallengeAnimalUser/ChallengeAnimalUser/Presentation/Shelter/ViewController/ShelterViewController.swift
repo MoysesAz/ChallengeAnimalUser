@@ -42,25 +42,14 @@ final class ShelterViewController: UIViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Abrigos"
-        navigationItem.backBarButtonItem = backItem
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let backItem = UIBarButtonItem()
+//        backItem.title = "Abrigos"
+//        navigationItem.backBarButtonItem = backItem
+//    }
 
     private func addBinders() {
-        viewModel.cacheRecords.bind { value in
-            DispatchQueue.main.async {
-                if value != nil {
-                    guard let value else { return }
-                    print(value)
-                    self.viewModel.records = value.map { $0 }
-                    self.viewModel.searchRecord = self.viewModel.records
-                    self.contentView.tableShelters.reloadData()
-                    self.contentView.configure()
-                }
-            }
-        }
+        cacheRecordsBinder()
     }
 
     private func configNavigationBar() {
@@ -85,24 +74,42 @@ final class ShelterViewController: UIViewController {
     }
 }
 
+extension ShelterViewController {
+    private func cacheRecordsBinder() {
+        viewModel.cacheRecords.bind { value in
+            DispatchQueue.main.async {
+                if value != nil {
+                    guard let value else { return }
+                    print(value)
+                    self.viewModel.records = value.map { $0 }
+                    self.viewModel.searchRecord = self.viewModel.records
+                    self.contentView.tableShelters.reloadData()
+                    self.contentView.configure()
+                }
+            }
+        }
+    }
+}
+
 extension ShelterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = viewModel.setDidSelectRow(tableView, didSelectRowAt: indexPath)
-        navigationController?.pushViewController(controller, animated: true)
+        viewModel.moveToShelterDetailPetsView(tableView,
+                                              didSelectRowAt: indexPath,
+                                              navBarController: navigationController)
     }
 }
 
 extension ShelterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        viewModel.tableViewAutoDimension
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.searchRecord.count
+        viewModel.searchRecord.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.makeShelterCell(tableView, cellForRowAt: indexPath)
+        viewModel.makeShelterCell(tableView, cellForRowAt: indexPath)
     }
 }
 
@@ -112,3 +119,5 @@ extension ShelterViewController: UISearchBarDelegate {
         contentView.tableShelters.reloadData()
     }
 }
+
+

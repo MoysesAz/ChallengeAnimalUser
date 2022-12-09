@@ -13,17 +13,21 @@ final class ShelterViewModel {
     var cacheRecords: ObservableObject<[CKRecord]?> = ObservableObject(nil)
     var records: [CKRecord] = []
     var searchRecord: [CKRecord] = []
+    var tableViewAutoDimension: CGFloat
 
     init(cloudRepository: some ICloudRepositoryProtocol) {
         self.cloudRepository = cloudRepository
+        self.tableViewAutoDimension = UITableView.automaticDimension
 
     }
 
     public func fetchShelterRecordsFromRepository() async {
         let database = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
         do {
-            let shelters = try await cloudRepository.fetch(recordType: .shelter,
-                                                           dataBase: database)
+            let shelters = try await cloudRepository.fetch(
+                recordType: .shelter,
+                dataBase: database
+            )
             cacheRecords.value = shelters
             print(shelters)
         } catch {
@@ -31,7 +35,10 @@ final class ShelterViewModel {
         }
     }
 
-    public func makeShelterCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func makeShelterCell(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ShelterTableViewCell.identifier,
             for: indexPath
@@ -72,8 +79,16 @@ final class ShelterViewModel {
         }
         let reference = CKRecord.Reference(recordID: id, action: .none)
         let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
-        let viewModel = PetViewModel(shelterId: reference, titleView: title, repository: repository)
+        let cloudRepository = ICloudRepository(publishContainer: repository)
+        let viewModel = PetViewModel(shelterId: reference, titleView: title, cloudRepository: cloudRepository)
         let controller = PetViewController(viewModel: viewModel)
         return controller
+    }
+
+    public func moveToShelterDetailPetsView(_ tableView: UITableView,
+                                            didSelectRowAt indexPath: IndexPath,
+                                            navBarController: UINavigationController?) {
+        let controller = setDidSelectRow(tableView, didSelectRowAt: indexPath)
+         navBarController?.pushViewController(controller, animated: true)
     }
 }

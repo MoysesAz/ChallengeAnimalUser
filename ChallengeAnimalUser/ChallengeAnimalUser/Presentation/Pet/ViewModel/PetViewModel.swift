@@ -8,15 +8,35 @@
 import UIKit
 import CloudKit
 
-class PetViewModel {
-    let shelterId: CKRecord.Reference
-    let titleView: String
-    let repository: CKDatabase
+final class PetViewModel {
+    private var cloudRepository: ICloudRepositoryProtocol
+    var cacheRecords: ObservableObject<[CKRecord]?> = ObservableObject(nil)
+    var records: [CKRecord] = []
+    var searchRecord: [CKRecord] = []
+    var tableViewAutoDimension: CGFloat
 
-    init(shelterId: CKRecord.Reference, titleView: String, repository: some CKDatabase) {
+    private let shelterId: CKRecord.Reference
+    public let titleView: String
+
+    init(shelterId: CKRecord.Reference, titleView: String, cloudRepository: some ICloudRepositoryProtocol) {
         self.shelterId = shelterId
         self.titleView = titleView
-        self.repository = repository
+        self.cloudRepository = cloudRepository
+        self.tableViewAutoDimension = UITableView.automaticDimension
+    }
+
+    public func fetchPetsRecordsFromRepository() async {
+        let database = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
+        do {
+            let pets = try await cloudRepository.fetch(
+                recordType: .animal,
+                dataBase: database
+            )
+            cacheRecords.value = pets
+            print(pets)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     public func makeCell(
