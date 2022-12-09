@@ -19,6 +19,7 @@
 		853962A12938E07E004DEA9D /* PetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A02938E07E004DEA9D /* PetTableViewCell.swift */; };
 		853962A32938E620004DEA9D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A22938E620004DEA9D /* UIView+.swift */; };
 		853962A52938E7A2004DEA9D /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853962A42938E7A2004DEA9D /* PetModel.swift */; };
+		8592723E2940C8140089664B /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8592723D2940C8140089664B /* UILabel+.swift */; };
 		9547E65429338ABD0074C4D9 /* configStencil in Resources */ = {isa = PBXBuildFile; fileRef = 9547E65329338ABD0074C4D9 /* configStencil */; };
 		95484BB2293126BF0021B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB1293126BF0021B21B /* AppDelegate.swift */; };
 		95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95484BB3293126BF0021B21B /* SceneDelegate.swift */; };
@@ -71,6 +72,7 @@
 		853962A02938E07E004DEA9D /* PetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewCell.swift; sourceTree = "<group>"; };
 		853962A22938E620004DEA9D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		853962A42938E7A2004DEA9D /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
+		8592723D2940C8140089664B /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		9547E65329338ABD0074C4D9 /* configStencil */ = {isa = PBXFileReference; lastKnownFileType = folder; path = configStencil; sourceTree = "<group>"; };
 		9547E65829338AD90074C4D9 /* autoViewConstraints.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoViewConstraints.stencil; sourceTree = "<group>"; };
 		9547E65929338AD90074C4D9 /* autoEquatable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = autoEquatable.stencil; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				852A02622936BEBD00C4B7D0 /* UIImageView+.swift */,
 				853962A22938E620004DEA9D /* UIView+.swift */,
 				955813B2293A300D00256D43 /* StringProtocol+.swift */,
+				8592723D2940C8140089664B /* UILabel+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				FEAE050B2938E41200F2A496 /* HeaderTableView.swift in Sources */,
 				95484BB4293126BF0021B21B /* SceneDelegate.swift in Sources */,
 				852A026129366D8200C4B7D0 /* CKAsset+.swift in Sources */,
+				8592723E2940C8140089664B /* UILabel+.swift in Sources */,
 				95E5C04B29356F0B006880A4 /* PetView.swift in Sources */,
 				8505B3A9293648A10032BAC9 /* ShelterTableViewCell.swift in Sources */,
 			);

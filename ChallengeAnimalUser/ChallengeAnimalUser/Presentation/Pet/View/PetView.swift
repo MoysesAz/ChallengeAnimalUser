@@ -6,7 +6,7 @@
 //
 import UIKit
 
-protocol PetViewProtocol {
+protocol PetViewProtocol: UIView {
     var tableAnimal: UITableView { get }
     var indicator: UIActivityIndicatorView { get }
     func configure()

@@ -1,7 +1,6 @@
 //
 //  AnimalsController.swift
 //  ChallengeAnimalUser
-//  swiftlint:disable force_cast
 //  Created by Moyses Miranda do Vale Azevedo on 28/11/22.
 //
 
@@ -10,16 +9,14 @@ import CloudKit
 
 final class PetViewController: UIViewController {
     var viewModel: PetViewModel
-    var contentView = PetView()
-    var cloudRepository: ICloudRepositoryProtocol
-    var testeRecord: [CKRecord] = []
-
+    var contentView: PetViewProtocol
+    var records: [CKRecord] = []
     var isSearch: Bool = false
     var searchController: UISearchController = UISearchController(searchResultsController: nil)
 
-    init(cloudRepository: ICloudRepositoryProtocol,
+    init(contentView: some PetViewProtocol = PetView(),
          viewModel: PetViewModel) {
-        self.cloudRepository = cloudRepository
+        self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -47,20 +44,20 @@ final class PetViewController: UIViewController {
         contentView.tableAnimal.delegate = self
         contentView.tableAnimal.dataSource = self
         contentView.loadData()
-        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer)
-        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
-        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
-        contentView.loadData()
-        cloudRepository.cacheRecords.bind { value in
-            DispatchQueue.main.async() {
-                if value != nil {
-                    guard let value else {return}
-                    self.testeRecord = value.map { $0 }
-                    self.contentView.configure()
-                    self.contentView.tableAnimal.reloadData()
-                }
-            }
-        }
+//        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer)
+//        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
+//        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
+//        contentView.loadData()
+//        cloudRepository.cacheRecords.bind { value in
+//            DispatchQueue.main.async() {
+//                if value != nil {
+//                    guard let value else {return}
+//                    self.records = value.map { $0 }
+//                    self.contentView.configure()
+//                    self.contentView.tableAnimal.reloadData()
+//                }
+//            }
+//        }
     }
 
     func createFilterNavigationItem() {
@@ -93,7 +90,7 @@ extension PetViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testeRecord.count
+        return records.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,7 +98,7 @@ extension PetViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = viewModel.makeCell(tableView, cellForRowAt: indexPath, records: testeRecord) else {
+        guard let cell = viewModel.makeCell(tableView, cellForRowAt: indexPath, records: records) else {
             return UITableViewCell()
         }
         return cell
