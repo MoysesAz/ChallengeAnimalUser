@@ -82,7 +82,7 @@ final class PetViewController: UIViewController {
 
 extension PetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = ImagesFormTableViewController(form: .rgData)
+        let viewController = FormOnboardingViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

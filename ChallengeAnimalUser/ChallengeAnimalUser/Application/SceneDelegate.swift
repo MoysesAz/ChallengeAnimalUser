@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
         let cloudRepository = ICloudRepository(publishContainer: repository)
-        let controller: UIViewController = ShelterViewController(cloudRepository: cloudRepository)
+        let controller: UIViewController = ShelterViewController(cloudRepository: cloudRepository)//FormOnboardingViewController()
         let navMainView = UINavigationController(rootViewController: controller)
         window?.rootViewController = navMainView
         window?.makeKeyAndVisible()
