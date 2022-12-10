@@ -1,7 +1,6 @@
 //
 //  AnimalsController.swift
 //  ChallengeAnimalUser
-//  swiftlint:disable force_cast
 //  Created by Moyses Miranda do Vale Azevedo on 28/11/22.
 //
 
@@ -9,61 +8,83 @@ import UIKit
 import CloudKit
 
 final class PetViewController: UIViewController {
-    var viewModel: PetViewModel
-    var contentView = PetView()
-    var cloudRepository: ICloudRepositoryProtocol
-    var testeRecord: [CKRecord] = []
+    private var viewModel: PetViewModel
+    private var contentView: PetViewProtocol
+    private var isSearch: Bool = false
+    private var searchController: UISearchController = UISearchController(searchResultsController: nil)
 
-    var isSearch: Bool = false
-    var searchController: UISearchController = UISearchController(searchResultsController: nil)
-
-    init(cloudRepository: ICloudRepositoryProtocol,
+    init(contentView: some PetViewProtocol = PetView(),
          viewModel: PetViewModel) {
-        self.cloudRepository = cloudRepository
+        self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     override func loadView() {
-        self.view = contentView
+        view = contentView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configViewController()
 
-        self.title = viewModel.titleView
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.searchController.searchBar.delegate = self
-        self.navigationItem.searchController = self.searchController
+//        contentView.loadData()
+//        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer)
+//        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
+//        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
+//        contentView.loadData()
+//        cloudRepository.cacheRecords.bind { value in
+//            DispatchQueue.main.async() {
+//                if value != nil {
+//                    guard let value else {return}
+//                    self.records = value.map { $0 }
+//                    self.contentView.configure()
+//                    self.contentView.tableAnimal.reloadData()
+//                }
+//            }
+//        }
+    }
 
-        self.navigationItem.backButtonTitle = "Abrigos"
-
-        createFilterNavigationItem()
-
-        contentView.tableAnimal.delegate = self
-        contentView.tableAnimal.dataSource = self
-        contentView.loadData()
-        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer)
-        let filter = NSPredicate(format: "shelterId == %@", viewModel.shelterId)
-        cloudRepository.filterRecords(recordType: .animal, dataBase: cloudRepository.publishContainer, filter: filter)
-        contentView.loadData()
-        cloudRepository.cacheRecords.bind { value in
-            DispatchQueue.main.async() {
-                if value != nil {
-                    guard let value else {return}
-                    self.testeRecord = value.map { $0 }
-                    self.contentView.configure()
-                    self.contentView.tableAnimal.reloadData()
-                }
-            }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addBinders()
+        Task {
+            await viewModel.fetchPetsRecordsFromRepository()
         }
     }
 
-    func createFilterNavigationItem() {
+    private func addBinders() {
+        cacheRecordsBinder()
+    }
+
+    private func configNavigationBar() {
+        title = viewModel.titleView
+        navigationController?.navigationBar.prefersLargeTitles = true
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = self.searchController
+        navigationItem.backButtonTitle = "Abrigos"
+        createFilterNavigationItem()
+    }
+
+    private func configTable() {
+        contentView.tableAnimal.register(
+            PetTableViewCell.self,
+            forCellReuseIdentifier: PetTableViewCell.identifier
+        )
+        contentView.tableAnimal.delegate = self
+        contentView.tableAnimal.dataSource = self
+    }
+
+    private func configViewController() {
+        configNavigationBar()
+        configTable()
+    }
+
+    private func createFilterNavigationItem() {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "line.3.horizontal.decrease"), for: .normal)
         button.addTarget(self, action: #selector(filterAnimals), for: .touchUpInside)
@@ -74,9 +95,23 @@ final class PetViewController: UIViewController {
     @objc func filterAnimals() {
         print("Helo")
     }
+}
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+extension PetViewController {
+    private func cacheRecordsBinder() {
+        viewModel.cacheRecords.bind { value in
+            DispatchQueue.main.async {
+                if value != nil {
+                    guard let value else { return }
+                    print(value)
+                    self.viewModel.records = value.map { $0 }
+                    self.viewModel.searchRecord = self.viewModel.records
+                    self.contentView.tableAnimal.reloadData()
+                    self.contentView.configure()
+                }
+            }
+
+        }
     }
 }
 
@@ -93,7 +128,7 @@ extension PetViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testeRecord.count
+        return records.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,7 +136,7 @@ extension PetViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = viewModel.makeCell(tableView, cellForRowAt: indexPath, records: testeRecord) else {
+        guard let cell = viewModel.makeCell(tableView, cellForRowAt: indexPath, records: records) else {
             return UITableViewCell()
         }
         return cell

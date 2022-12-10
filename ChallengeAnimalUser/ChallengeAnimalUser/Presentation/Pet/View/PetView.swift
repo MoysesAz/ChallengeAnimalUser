@@ -6,7 +6,7 @@
 //
 import UIKit
 
-protocol PetViewProtocol {
+protocol PetViewProtocol: UIView {
     var tableAnimal: UITableView { get }
     var indicator: UIActivityIndicatorView { get }
     func configure()
@@ -23,7 +23,6 @@ final class PetView: UIView {
 
     lazy var tableAnimal: UITableView = {
         let tableAnimal = UITableView(frame: .zero, style: .plain)
-        tableAnimal.register(PetTableViewCell.self, forCellReuseIdentifier: PetTableViewCell.identifier)
         tableAnimal.translatesAutoresizingMaskIntoConstraints = false
         return tableAnimal
     }()

@@ -3,47 +3,63 @@
 //  ChallengeAnimalUser
 //
 //  Created by Moyses Miranda do Vale Azevedo on 25/11/22.
-//  swiftlint:disable force_cast
+//
 
 import UIKit
 import CloudKit
 
-protocol ShelterViewControllerDelegate: AnyObject {}
+final class ShelterViewController: UIViewController {
+    private var viewModel: ShelterViewModel
+    private var contentView: SheltersViewProtocol
+    private var isSearch: Bool = false
+    private var searchController: UISearchController = UISearchController(searchResultsController: nil)
 
-class ShelterViewController: UIViewController {
-    var viewModel: ShelterViewModel
-    var contentView: SheltersViewProtocol
-    var cloudRepository: ICloudRepositoryProtocol
-    var records: [CKRecord] = []
-    var searchRecord: [CKRecord] = []
-
-    var isSearch: Bool = false
-    var searchController: UISearchController = UISearchController(searchResultsController: nil)
-
-    init(cloudRepository: some ICloudRepositoryProtocol,
-         contentView: some SheltersViewProtocol = ShelterView(),
-         viewModel: ShelterViewModel = ShelterViewModel()) {
-        self.cloudRepository = cloudRepository
+    init(contentView: some SheltersViewProtocol = ShelterView(),
+         viewModel: ShelterViewModel) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     override func loadView() {
-        self.view = contentView
+        view = contentView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Abrigos próximos"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.searchController.searchBar.delegate = self
-        self.navigationItem.searchController = self.searchController
+        configViewController()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addBinders()
+        Task {
+            await viewModel.fetchShelterRecordsFromRepository()
+        }
+    }
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let backItem = UIBarButtonItem()
+//        backItem.title = "Abrigos"
+//        navigationItem.backBarButtonItem = backItem
+//    }
+
+    private func addBinders() {
+        cacheRecordsBinder()
+    }
+
+    private func configNavigationBar() {
+        title = "Abrigos próximos"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = self.searchController
+    }
+
+    private func configTable() {
         contentView.tableShelters.register(
             ShelterTableViewCell.self,
             forCellReuseIdentifier: ShelterTableViewCell.identifier
@@ -52,91 +68,56 @@ class ShelterViewController: UIViewController {
         contentView.tableShelters.dataSource = self
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        cloudRepository.filterRecords(recordType: .shelter, dataBase: cloudRepository.publishContainer)
-        contentView.loadData()
-        cloudRepository.cacheRecords.bind { value in
+    private func configViewController() {
+        configNavigationBar()
+        configTable()
+    }
+}
+
+extension ShelterViewController {
+    private func cacheRecordsBinder() {
+        viewModel.cacheRecords.bind { value in
             DispatchQueue.main.async {
                 if value != nil {
-                    guard let value else {return}
-                    self.records = value.map { $0 }
-                    self.searchRecord = self.records
+                    guard let value else { return }
+                    print(value)
+                    self.viewModel.records = value.map { $0 }
+                    self.viewModel.searchRecord = self.viewModel.records
                     self.contentView.tableShelters.reloadData()
                     self.contentView.configure()
                 }
             }
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Abrigos"
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-    }
-
 }
 
 extension ShelterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = records[indexPath.row].recordID
-        let title = records[indexPath.row].value(forKey: "shelterName") as! String
-        let reference = CKRecord.Reference(recordID: id, action: .none)
-        let viewModel = PetViewModel(shelterId: reference, titleView: title)
-        let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
-        let cloudRepository = ICloudRepository(publishContainer: repository)
-        let controller = PetViewController(cloudRepository: cloudRepository, viewModel: viewModel)
-        navigationController?.pushViewController(controller, animated: true)
+        viewModel.moveToShelterDetailPetsView(tableView,
+                                              didSelectRowAt: indexPath,
+                                              navBarController: navigationController)
     }
 }
 
 extension ShelterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        viewModel.tableViewAutoDimension
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchRecord.count
+        viewModel.searchRecord.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return makeShelterCell(tableView, cellForRowAt: indexPath)
-    }
-
-}
-
-// MARK: - Mover para a camada ViewModel
-extension ShelterViewController {
-    func makeShelterCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ShelterTableViewCell.identifier,
-            for: indexPath
-        ) as? ShelterTableViewCell else {
-            return UITableViewCell()
-        }
-
-        let name = searchRecord[indexPath.row].value(forKey: "shelterName") as! String
-        let image: CKAsset = searchRecord[indexPath.row].object(forKey: "logo") as! CKAsset
-        let imageURL: URL? = URL(string: image.fileURL!.absoluteString)
-        let cellInfo = Shelter(name: name, image: imageURL)
-        cell.shelterInfo = cellInfo
-        return cell
+        viewModel.makeShelterCell(tableView, cellForRowAt: indexPath)
     }
 }
 
 extension ShelterViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            guard let value =  cloudRepository.cacheRecords.value else {return}
-            searchRecord = value
-        } else {
-            searchRecord = records.filter({
-                guard let value = $0.value(forKey: "shelterName") else { return false }
-                guard let name = value as? String else { return false }
-                return name.lowercased().stripingDiacritics.contains(searchText.lowercased().stripingDiacritics)
-            })
-        }
+        viewModel.configSearchBar(searchBar, textDidChange: searchText)
         contentView.tableShelters.reloadData()
-
     }
 }
+
+
