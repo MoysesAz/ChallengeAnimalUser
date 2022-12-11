@@ -17,6 +17,7 @@ final class PetViewModel {
 
     private let shelterId: CKRecord.Reference
     public let titleView: String
+    public let tableViewHeaderTitle: String = "Animais Disponiaveis"
 
     init(shelterId: CKRecord.Reference, titleView: String, cloudRepository: some ICloudRepositoryProtocol) {
         self.shelterId = shelterId
@@ -39,11 +40,9 @@ final class PetViewModel {
         }
     }
 
-    public func makeCell(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath,
-        records: [CKRecord]
-    ) -> UITableViewCell? {
+    public func makePetCell(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath,
+                            records: [CKRecord]) -> UITableViewCell {
 
         guard
             let cell = tableView.dequeueReusableCell(
@@ -53,7 +52,7 @@ final class PetViewModel {
             let image: CKAsset = records[indexPath.row].object(forKey: "image") as? CKAsset,
             let neutered = records[indexPath.row].value(forKey: "neutered") as? String,
             let name = records[indexPath.row].value(forKey: "nameAnimal") as? String else {
-            return nil
+            return UITableViewCell()
         }
 
         let isNeureted = neutered == "true" ? true : false
@@ -66,4 +65,8 @@ final class PetViewModel {
         return cell
     }
 
+    public func moveToOnboardingForm(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, navigationController: UINavigationController?) {
+        let controller = FormOnboardingViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

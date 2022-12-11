@@ -117,29 +117,27 @@ extension PetViewController {
 
 extension PetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = FormOnboardingViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        viewModel.moveToOnboardingForm(tableView, didSelectRowAt: indexPath, navigationController: self.navigationController)
+//        let viewController = FormOnboardingViewController()
+//        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
 extension PetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Animais disponíveis"
+        viewModel.tableViewHeaderTitle
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+         viewModel.records.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        viewModel.tableViewAutoDimension
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = viewModel.makeCell(tableView, cellForRowAt: indexPath, records: records) else {
-            return UITableViewCell()
-        }
-        return cell
+        viewModel.makePetCell(tableView, cellForRowAt: indexPath, records: viewModel.records)
     }
 }
 
