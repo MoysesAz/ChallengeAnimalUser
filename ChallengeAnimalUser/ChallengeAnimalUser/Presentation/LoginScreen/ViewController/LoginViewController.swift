@@ -4,7 +4,7 @@
 //
 //  Created by Tales Valente on 11/10/22.
 import UIKit
-import Foundation
+import CloudKit
 
 class LoginViewController: UIViewController, UIScrollViewDelegate {
     
@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     }
 
     override func loadView() {
-        self.screen = LoginView()
+        self.screen = LoginView(frame: .zero, moveToShelter: self.moveToShelterView)
         self.screen?.delegate = self
         self.view = self.screen
     }
@@ -27,5 +27,13 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
+
+    func moveToShelterView () -> Void {
+        let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
+        let cloudRepository = ICloudRepository(publishContainer: repository)
+        let controller: UIViewController = ShelterViewController(cloudRepository: cloudRepository)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+
 
 }

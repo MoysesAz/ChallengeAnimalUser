@@ -18,8 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let repository = CKContainer(identifier: "iCloud.Mirazev.AnimalUser").publicCloudDatabase
-        let cloudRepository = ICloudRepository(publishContainer: repository)
         let controller: UIViewController = LoginViewController()
         let navMainView = UINavigationController(rootViewController: controller)
         window?.rootViewController = navMainView
